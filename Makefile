@@ -1,5 +1,5 @@
 fetch:
-	wget https://raw.githubusercontent.com/akeneo/pim-api-docs/master/content/swagger/akeneo-web-api.json
+	curl -o akeneo-web-api.json https://raw.githubusercontent.com/akeneo/pim-api-docs/master/content/swagger/akeneo-web-api.json
 
 generate:
 	openapi-generator generate \

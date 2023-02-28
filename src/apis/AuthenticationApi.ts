@@ -59,7 +59,7 @@ export class AuthenticationApi extends runtime.BaseAPI {
         headerParameters['Content-Type'] = 'application/json';
 
         if (requestParameters.contentType !== undefined && requestParameters.contentType !== null) {
-            headerParameters['Content-type'] = String(requestParameters.contentType);
+            headerParameters['Content-Type'] = String(requestParameters.contentType);
         }
 
         if (requestParameters.authorization !== undefined && requestParameters.authorization !== null) {
