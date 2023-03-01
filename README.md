@@ -29,9 +29,12 @@ make fetch
 make generate
 ```
 
-__Note__ that there is currently a typo in the OpenAPI documentation. Replace all
-occurrences of "Content-type" with "Content-Type" after generating and before
-publishing.
+__Note__ that there are currently some typos/bugs in the OpenAPI documentation. Replace
+all occurrences of the following after generating and before publishing.
+
+- "Content-type" with "Content-Type" 
+- `"properties": { "_embedded": {` with `"type": "object", "properties": { "_embedded":
+  {`
 
 ### Publishing
 
