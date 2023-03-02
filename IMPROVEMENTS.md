@@ -21,26 +21,22 @@ occurrences of the following before generating and publishing.
 
 ### content type
 
-```json
-"Content-type" --> "Content-Type"
-```
+`"Content-type"` --> `"Content-Type"`
 
 ### _embedded properties
 
 ```json
 "properties": {
-    "_embedded": {
-        ...
-    }
+    "_embedded": {}
 }
+```
 
-// should be
+should be
 
+```json
 "type": "object", 
 "properties": {
-    "_embedded": {
-        ...
-    }
+    "_embedded": {}
 }
 ```
 
@@ -49,29 +45,26 @@ occurrences of the following before generating and publishing.
 Dynamic key-value pairs where the key can be anything should be marked with
 `additionalProperties`. 
 
-```json
-"attributeCode" --> "additionalProperties"
-```
+`"attributeCode"` --> `"additionalProperties"`
 
 Also, these `additionalProperties` should not be within a `properties`.
 
 ```json
 "properties": {
-    "additionalProperties": {
-        ...
-    }
+    "additionalProperties": {}
 }
+```
 
-// should be
+should be
 
-"additionalProperties": {
-    ...
-}
+```json
+"additionalProperties": {}
 ```
 
 ## Building
 
 To build and compile the typescript sources to javascript use:
+
 ```
 make generate
 ```
