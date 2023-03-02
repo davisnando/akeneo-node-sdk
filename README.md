@@ -21,8 +21,8 @@ It can be used in both TypeScript and JavaScript. In TypeScript, the definition 
 
 To build and compile the typescript sources to javascript use:
 ```
-npm install
-npm run build
+pnpm install
+pnpm run build
 ```
 
 ### Publishing
@@ -36,10 +36,6 @@ navigate to the folder of your consuming project and run one of the following co
 _published:_
 
 ```
-npm install @labdigital/akeneo-node-sdk@1.0.0 --save
+pnpm add @labdigital/akeneo-node-sdk
 ```
 
-_unPublished (not recommended):_
-
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
