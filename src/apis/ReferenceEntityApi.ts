@@ -17,18 +17,18 @@ import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
   GetReferenceEntitiesCode200Response,
-  PatchReferenceEntityCodeRequest,
   ReferenceEntities,
+  ReferenceEntitiesEmbeddedItemsInnerAllOf1,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     GetReferenceEntitiesCode200ResponseFromJSON,
     GetReferenceEntitiesCode200ResponseToJSON,
-    PatchReferenceEntityCodeRequestFromJSON,
-    PatchReferenceEntityCodeRequestToJSON,
     ReferenceEntitiesFromJSON,
     ReferenceEntitiesToJSON,
+    ReferenceEntitiesEmbeddedItemsInnerAllOf1FromJSON,
+    ReferenceEntitiesEmbeddedItemsInnerAllOf1ToJSON,
 } from '../models';
 
 export interface GetReferenceEntitiesRequest {
@@ -39,9 +39,9 @@ export interface GetReferenceEntitiesCodeRequest {
     code: string;
 }
 
-export interface PatchReferenceEntityCodeOperationRequest {
+export interface PatchReferenceEntityCodeRequest {
     code: string;
-    body: PatchReferenceEntityCodeRequest;
+    body: ReferenceEntitiesEmbeddedItemsInnerAllOf1;
 }
 
 /**
@@ -117,7 +117,7 @@ export class ReferenceEntityApi extends runtime.BaseAPI {
      * This endpoint allows you to update a given reference entity. Note that if the reference entity does not already exist, it creates it.
      * Update/create a reference entity
      */
-    async patchReferenceEntityCodeRaw(requestParameters: PatchReferenceEntityCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async patchReferenceEntityCodeRaw(requestParameters: PatchReferenceEntityCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling patchReferenceEntityCode.');
         }
@@ -137,7 +137,7 @@ export class ReferenceEntityApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PatchReferenceEntityCodeRequestToJSON(requestParameters.body),
+            body: ReferenceEntitiesEmbeddedItemsInnerAllOf1ToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -147,7 +147,7 @@ export class ReferenceEntityApi extends runtime.BaseAPI {
      * This endpoint allows you to update a given reference entity. Note that if the reference entity does not already exist, it creates it.
      * Update/create a reference entity
      */
-    async patchReferenceEntityCode(requestParameters: PatchReferenceEntityCodeOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async patchReferenceEntityCode(requestParameters: PatchReferenceEntityCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.patchReferenceEntityCodeRaw(requestParameters, initOverrides);
     }
 

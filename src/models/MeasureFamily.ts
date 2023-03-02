@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MeasureFamiliesGet200ResponseUnitsInner } from './MeasureFamiliesGet200ResponseUnitsInner';
+import type { MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInner } from './MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInner';
 import {
-    MeasureFamiliesGet200ResponseUnitsInnerFromJSON,
-    MeasureFamiliesGet200ResponseUnitsInnerFromJSONTyped,
-    MeasureFamiliesGet200ResponseUnitsInnerToJSON,
-} from './MeasureFamiliesGet200ResponseUnitsInner';
+    MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInnerFromJSON,
+    MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInnerFromJSONTyped,
+    MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInnerToJSON,
+} from './MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInner';
 
 /**
  * 
@@ -40,10 +40,10 @@ export interface MeasureFamily {
     standard?: string;
     /**
      * Family units
-     * @type {Array<MeasureFamiliesGet200ResponseUnitsInner>}
+     * @type {Array<MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInner>}
      * @memberof MeasureFamily
      */
-    units?: Array<MeasureFamiliesGet200ResponseUnitsInner>;
+    units?: Array<MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInner>;
 }
 
 /**
@@ -68,7 +68,7 @@ export function MeasureFamilyFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'code': json['code'],
         'standard': !exists(json, 'standard') ? undefined : json['standard'],
-        'units': !exists(json, 'units') ? undefined : ((json['units'] as Array<any>).map(MeasureFamiliesGet200ResponseUnitsInnerFromJSON)),
+        'units': !exists(json, 'units') ? undefined : ((json['units'] as Array<any>).map(MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInnerFromJSON)),
     };
 }
 
@@ -83,7 +83,7 @@ export function MeasureFamilyToJSON(value?: MeasureFamily | null): any {
         
         'code': value.code,
         'standard': value.standard,
-        'units': value.units === undefined ? undefined : ((value.units as Array<any>).map(MeasureFamiliesGet200ResponseUnitsInnerToJSON)),
+        'units': value.units === undefined ? undefined : ((value.units as Array<any>).map(MeasureFamiliesEmbeddedItemsInnerAllOfUnitsInnerToJSON)),
     };
 }
 

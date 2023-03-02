@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostFamiliesRequestAttributeRequirements } from './PostFamiliesRequestAttributeRequirements';
+import type { FamiliesEmbeddedItemsInnerAllOfAttributeRequirements } from './FamiliesEmbeddedItemsInnerAllOfAttributeRequirements';
 import {
-    PostFamiliesRequestAttributeRequirementsFromJSON,
-    PostFamiliesRequestAttributeRequirementsFromJSONTyped,
-    PostFamiliesRequestAttributeRequirementsToJSON,
-} from './PostFamiliesRequestAttributeRequirements';
-import type { PostFamiliesRequestLabels } from './PostFamiliesRequestLabels';
+    FamiliesEmbeddedItemsInnerAllOfAttributeRequirementsFromJSON,
+    FamiliesEmbeddedItemsInnerAllOfAttributeRequirementsFromJSONTyped,
+    FamiliesEmbeddedItemsInnerAllOfAttributeRequirementsToJSON,
+} from './FamiliesEmbeddedItemsInnerAllOfAttributeRequirements';
+import type { FamiliesEmbeddedItemsInnerAllOfLabels } from './FamiliesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostFamiliesRequestLabelsFromJSON,
-    PostFamiliesRequestLabelsFromJSONTyped,
-    PostFamiliesRequestLabelsToJSON,
-} from './PostFamiliesRequestLabels';
+    FamiliesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    FamiliesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    FamiliesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './FamiliesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -58,16 +58,16 @@ export interface Family {
     attributes?: Array<string>;
     /**
      * 
-     * @type {PostFamiliesRequestAttributeRequirements}
+     * @type {FamiliesEmbeddedItemsInnerAllOfAttributeRequirements}
      * @memberof Family
      */
-    attributeRequirements?: PostFamiliesRequestAttributeRequirements;
+    attributeRequirements?: FamiliesEmbeddedItemsInnerAllOfAttributeRequirements;
     /**
      * 
-     * @type {PostFamiliesRequestLabels}
+     * @type {FamiliesEmbeddedItemsInnerAllOfLabels}
      * @memberof Family
      */
-    labels?: PostFamiliesRequestLabels;
+    labels?: FamiliesEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -95,8 +95,8 @@ export function FamilyFromJSONTyped(json: any, ignoreDiscriminator: boolean): Fa
         'attributeAsLabel': json['attribute_as_label'],
         'attributeAsImage': !exists(json, 'attribute_as_image') ? undefined : json['attribute_as_image'],
         'attributes': !exists(json, 'attributes') ? undefined : json['attributes'],
-        'attributeRequirements': !exists(json, 'attribute_requirements') ? undefined : PostFamiliesRequestAttributeRequirementsFromJSON(json['attribute_requirements']),
-        'labels': !exists(json, 'labels') ? undefined : PostFamiliesRequestLabelsFromJSON(json['labels']),
+        'attributeRequirements': !exists(json, 'attribute_requirements') ? undefined : FamiliesEmbeddedItemsInnerAllOfAttributeRequirementsFromJSON(json['attribute_requirements']),
+        'labels': !exists(json, 'labels') ? undefined : FamiliesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -113,8 +113,8 @@ export function FamilyToJSON(value?: Family | null): any {
         'attribute_as_label': value.attributeAsLabel,
         'attribute_as_image': value.attributeAsImage,
         'attributes': value.attributes,
-        'attribute_requirements': PostFamiliesRequestAttributeRequirementsToJSON(value.attributeRequirements),
-        'labels': PostFamiliesRequestLabelsToJSON(value.labels),
+        'attribute_requirements': FamiliesEmbeddedItemsInnerAllOfAttributeRequirementsToJSON(value.attributeRequirements),
+        'labels': FamiliesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

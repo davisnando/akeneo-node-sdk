@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostProductsRequestValuesAttributeCodeInner } from './PostProductsRequestValuesAttributeCodeInner';
+import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 import {
-    PostProductsRequestValuesAttributeCodeInnerFromJSON,
-    PostProductsRequestValuesAttributeCodeInnerFromJSONTyped,
-    PostProductsRequestValuesAttributeCodeInnerToJSON,
-} from './PostProductsRequestValuesAttributeCodeInner';
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 
 /**
  * Product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
@@ -28,10 +28,10 @@ import {
 export interface PostProductsRequestValues {
     /**
      * 
-     * @type {Array<PostProductsRequestValuesAttributeCodeInner>}
+     * @type {Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>}
      * @memberof PostProductsRequestValues
      */
-    attributeCode?: Array<PostProductsRequestValuesAttributeCodeInner>;
+    additionalProperties?: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostProductsRequestValuesFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'attributeCode': !exists(json, 'attributeCode') ? undefined : ((json['attributeCode'] as Array<any>).map(PostProductsRequestValuesAttributeCodeInnerFromJSON)),
+        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : ((json['additionalProperties'] as Array<any>).map(ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function PostProductsRequestValuesToJSON(value?: PostProductsRequestValue
     }
     return {
         
-        'attributeCode': value.attributeCode === undefined ? undefined : ((value.attributeCode as Array<any>).map(PostProductsRequestValuesAttributeCodeInnerToJSON)),
+        'additionalProperties': value.additionalProperties === undefined ? undefined : ((value.additionalProperties as Array<any>).map(ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerToJSON)),
     };
 }
 

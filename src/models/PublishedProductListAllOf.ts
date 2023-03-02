@@ -19,12 +19,6 @@ import {
     PublishedProductListAllOfAssociationsFromJSONTyped,
     PublishedProductListAllOfAssociationsToJSON,
 } from './PublishedProductListAllOfAssociations';
-import type { PublishedProductListAllOfValues } from './PublishedProductListAllOfValues';
-import {
-    PublishedProductListAllOfValuesFromJSON,
-    PublishedProductListAllOfValuesFromJSONTyped,
-    PublishedProductListAllOfValuesToJSON,
-} from './PublishedProductListAllOfValues';
 
 /**
  * 
@@ -63,11 +57,11 @@ export interface PublishedProductListAllOf {
      */
     groups?: Array<string>;
     /**
-     * 
-     * @type {PublishedProductListAllOfValues}
+     * Published product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<object>; }}
      * @memberof PublishedProductListAllOf
      */
-    values?: PublishedProductListAllOfValues;
+    values?: { [key: string]: Array<object>; };
     /**
      * 
      * @type {PublishedProductListAllOfAssociations}
@@ -119,7 +113,7 @@ export function PublishedProductListAllOfFromJSONTyped(json: any, ignoreDiscrimi
         'family': !exists(json, 'family') ? undefined : json['family'],
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
-        'values': !exists(json, 'values') ? undefined : PublishedProductListAllOfValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'associations': !exists(json, 'associations') ? undefined : PublishedProductListAllOfAssociationsFromJSON(json['associations']),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : json['quantified_associations'],
         'created': !exists(json, 'created') ? undefined : json['created'],
@@ -141,7 +135,7 @@ export function PublishedProductListAllOfToJSON(value?: PublishedProductListAllO
         'family': value.family,
         'categories': value.categories,
         'groups': value.groups,
-        'values': PublishedProductListAllOfValuesToJSON(value.values),
+        'values': value.values,
         'associations': PublishedProductListAllOfAssociationsToJSON(value.associations),
         'quantified_associations': value.quantifiedAssociations,
         'created': value.created,

@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssetListAllOfValues } from './AssetListAllOfValues';
-import {
-    AssetListAllOfValuesFromJSON,
-    AssetListAllOfValuesFromJSONTyped,
-    AssetListAllOfValuesToJSON,
-} from './AssetListAllOfValues';
-
 /**
  * 
  * @export
@@ -33,19 +26,19 @@ export interface AssetListAllOf {
      */
     code: string;
     /**
-     * 
-     * @type {AssetListAllOfValues}
+     * Asset attributes values, see the <a href='/concepts/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details.
+     * @type {{ [key: string]: Array<object>; }}
      * @memberof AssetListAllOf
      */
-    values?: AssetListAllOfValues;
+    values?: { [key: string]: Array<object>; };
     /**
-     * Date of creation (Only available on SaaS versions)
+     * Date of creation
      * @type {string}
      * @memberof AssetListAllOf
      */
     created?: string;
     /**
-     * Date of the last update (Only available on SaaS versions)
+     * Date of the last update
      * @type {string}
      * @memberof AssetListAllOf
      */
@@ -73,7 +66,7 @@ export function AssetListAllOfFromJSONTyped(json: any, ignoreDiscriminator: bool
     return {
         
         'code': json['code'],
-        'values': !exists(json, 'values') ? undefined : AssetListAllOfValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
     };
@@ -89,7 +82,7 @@ export function AssetListAllOfToJSON(value?: AssetListAllOf | null): any {
     return {
         
         'code': value.code,
-        'values': AssetListAllOfValuesToJSON(value.values),
+        'values': value.values,
         'created': value.created,
         'updated': value.updated,
     };

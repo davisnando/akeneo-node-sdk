@@ -16,7 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   Categories,
-  GetCategoriesCode200Response,
+  CategoriesEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchCategoriesRequest,
   PatchProducts200Response,
@@ -25,8 +25,8 @@ import type {
 import {
     CategoriesFromJSON,
     CategoriesToJSON,
-    GetCategoriesCode200ResponseFromJSON,
-    GetCategoriesCode200ResponseToJSON,
+    CategoriesEmbeddedItemsInnerAllOfFromJSON,
+    CategoriesEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchCategoriesRequestFromJSON,
@@ -130,7 +130,7 @@ export class CategoryApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given category.
      * Get a category
      */
-    async getCategoriesCodeRaw(requestParameters: GetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetCategoriesCode200Response>> {
+    async getCategoriesCodeRaw(requestParameters: GetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CategoriesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getCategoriesCode.');
         }
@@ -154,14 +154,14 @@ export class CategoryApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetCategoriesCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoriesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given category.
      * Get a category
      */
-    async getCategoriesCode(requestParameters: GetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetCategoriesCode200Response> {
+    async getCategoriesCode(requestParameters: GetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoriesEmbeddedItemsInnerAllOf> {
         const response = await this.getCategoriesCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

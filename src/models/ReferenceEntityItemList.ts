@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReferenceEntityItemListLinks } from './ReferenceEntityItemListLinks';
+import type { ReferenceEntitiesEmbeddedItemsInnerAllOfLinks } from './ReferenceEntitiesEmbeddedItemsInnerAllOfLinks';
 import {
-    ReferenceEntityItemListLinksFromJSON,
-    ReferenceEntityItemListLinksFromJSONTyped,
-    ReferenceEntityItemListLinksToJSON,
-} from './ReferenceEntityItemListLinks';
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksFromJSON,
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksFromJSONTyped,
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksToJSON,
+} from './ReferenceEntitiesEmbeddedItemsInnerAllOfLinks';
 
 /**
  * 
@@ -28,10 +28,10 @@ import {
 export interface ReferenceEntityItemList {
     /**
      * 
-     * @type {ReferenceEntityItemListLinks}
+     * @type {ReferenceEntitiesEmbeddedItemsInnerAllOfLinks}
      * @memberof ReferenceEntityItemList
      */
-    links?: ReferenceEntityItemListLinks;
+    links?: ReferenceEntitiesEmbeddedItemsInnerAllOfLinks;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ReferenceEntityItemListFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'links': !exists(json, '_links') ? undefined : ReferenceEntityItemListLinksFromJSON(json['_links']),
+        'links': !exists(json, '_links') ? undefined : ReferenceEntitiesEmbeddedItemsInnerAllOfLinksFromJSON(json['_links']),
     };
 }
 
@@ -66,7 +66,7 @@ export function ReferenceEntityItemListToJSON(value?: ReferenceEntityItemList | 
     }
     return {
         
-        '_links': ReferenceEntityItemListLinksToJSON(value.links),
+        '_links': ReferenceEntitiesEmbeddedItemsInnerAllOfLinksToJSON(value.links),
     };
 }
 

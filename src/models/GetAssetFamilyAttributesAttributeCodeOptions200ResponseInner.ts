@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAttributesRequestLabels } from './PostAttributesRequestLabels';
+import type { AttributesEmbeddedItemsInnerAllOfLabels } from './AttributesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAttributesRequestLabelsFromJSON,
-    PostAttributesRequestLabelsFromJSONTyped,
-    PostAttributesRequestLabelsToJSON,
-} from './PostAttributesRequestLabels';
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -34,10 +34,10 @@ export interface GetAssetFamilyAttributesAttributeCodeOptions200ResponseInner {
     code: string;
     /**
      * 
-     * @type {PostAttributesRequestLabels}
+     * @type {AttributesEmbeddedItemsInnerAllOfLabels}
      * @memberof GetAssetFamilyAttributesAttributeCodeOptions200ResponseInner
      */
-    labels?: PostAttributesRequestLabels;
+    labels?: AttributesEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -61,7 +61,7 @@ export function GetAssetFamilyAttributesAttributeCodeOptions200ResponseInnerFrom
     return {
         
         'code': json['code'],
-        'labels': !exists(json, 'labels') ? undefined : PostAttributesRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -75,7 +75,7 @@ export function GetAssetFamilyAttributesAttributeCodeOptions200ResponseInnerToJS
     return {
         
         'code': value.code,
-        'labels': PostAttributesRequestLabelsToJSON(value.labels),
+        'labels': AttributesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

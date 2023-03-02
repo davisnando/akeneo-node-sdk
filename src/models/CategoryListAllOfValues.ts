@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCode } from './CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCode';
+import type { CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCode } from './CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCode';
 import {
-    CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCodeFromJSON,
-    CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCodeFromJSONTyped,
-    CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCodeToJSON,
-} from './CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCode';
+    CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCodeFromJSON,
+    CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCodeFromJSONTyped,
+    CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCodeToJSON,
+} from './CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCode';
 
 /**
  * Attribute values
@@ -28,10 +28,10 @@ import {
 export interface CategoryListAllOfValues {
     /**
      * 
-     * @type {Array<CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCode>}
+     * @type {Array<CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCode>}
      * @memberof CategoryListAllOfValues
      */
-    attributeCodeAttributeUuidChannelCodeLocaleCode?: Array<CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCode>;
+    additionalPropertiesAttributeUuidChannelCodeLocaleCode?: Array<CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCode>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function CategoryListAllOfValuesFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
-        'attributeCodeAttributeUuidChannelCodeLocaleCode': !exists(json, 'attributeCode|attributeUuid|channelCode|localeCode') ? undefined : ((json['attributeCode|attributeUuid|channelCode|localeCode'] as Array<any>).map(CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCodeFromJSON)),
+        'additionalPropertiesAttributeUuidChannelCodeLocaleCode': !exists(json, 'additionalProperties|attributeUuid|channelCode|localeCode') ? undefined : ((json['additionalProperties|attributeUuid|channelCode|localeCode'] as Array<any>).map(CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCodeFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function CategoryListAllOfValuesToJSON(value?: CategoryListAllOfValues | 
     }
     return {
         
-        'attributeCode|attributeUuid|channelCode|localeCode': value.attributeCodeAttributeUuidChannelCodeLocaleCode === undefined ? undefined : ((value.attributeCodeAttributeUuidChannelCodeLocaleCode as Array<any>).map(CategoryListAllOfValuesAttributeCodeAttributeUuidChannelCodeLocaleCodeToJSON)),
+        'additionalProperties|attributeUuid|channelCode|localeCode': value.additionalPropertiesAttributeUuidChannelCodeLocaleCode === undefined ? undefined : ((value.additionalPropertiesAttributeUuidChannelCodeLocaleCode as Array<any>).map(CategoryListAllOfValuesAdditionalPropertiesAttributeUuidChannelCodeLocaleCodeToJSON)),
     };
 }
 

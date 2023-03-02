@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MeasureFamiliesEmbedded } from './MeasureFamiliesEmbedded';
+import {
+    MeasureFamiliesEmbeddedFromJSON,
+    MeasureFamiliesEmbeddedFromJSONTyped,
+    MeasureFamiliesEmbeddedToJSON,
+} from './MeasureFamiliesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface MeasureFamilies
  */
 export interface MeasureFamilies {
+    /**
+     * 
+     * @type {MeasureFamiliesEmbedded}
+     * @memberof MeasureFamilies
+     */
+    embedded?: MeasureFamiliesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function MeasureFamiliesFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : MeasureFamiliesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function MeasureFamiliesToJSON(value?: MeasureFamilies | null): any {
     }
     return {
         
+        '_embedded': MeasureFamiliesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

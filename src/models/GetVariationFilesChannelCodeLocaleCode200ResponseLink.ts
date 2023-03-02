@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostPamAssetsRequestVariationFilesInnerLinkDownload } from './PostPamAssetsRequestVariationFilesInnerLinkDownload';
+import type { PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownload } from './PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownload';
 import {
-    PostPamAssetsRequestVariationFilesInnerLinkDownloadFromJSON,
-    PostPamAssetsRequestVariationFilesInnerLinkDownloadFromJSONTyped,
-    PostPamAssetsRequestVariationFilesInnerLinkDownloadToJSON,
-} from './PostPamAssetsRequestVariationFilesInnerLinkDownload';
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownloadFromJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownloadFromJSONTyped,
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownloadToJSON,
+} from './PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownload';
 
 /**
  * Links to get and download the reference file
@@ -28,10 +28,10 @@ import {
 export interface GetVariationFilesChannelCodeLocaleCode200ResponseLink {
     /**
      * 
-     * @type {PostPamAssetsRequestVariationFilesInnerLinkDownload}
+     * @type {PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownload}
      * @memberof GetVariationFilesChannelCodeLocaleCode200ResponseLink
      */
-    download?: PostPamAssetsRequestVariationFilesInnerLinkDownload;
+    download?: PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownload;
 }
 
 /**
@@ -53,7 +53,7 @@ export function GetVariationFilesChannelCodeLocaleCode200ResponseLinkFromJSONTyp
     }
     return {
         
-        'download': !exists(json, 'download') ? undefined : PostPamAssetsRequestVariationFilesInnerLinkDownloadFromJSON(json['download']),
+        'download': !exists(json, 'download') ? undefined : PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownloadFromJSON(json['download']),
     };
 }
 
@@ -66,7 +66,7 @@ export function GetVariationFilesChannelCodeLocaleCode200ResponseLinkToJSON(valu
     }
     return {
         
-        'download': PostPamAssetsRequestVariationFilesInnerLinkDownloadToJSON(value.download),
+        'download': PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerLinkDownloadToJSON(value.download),
     };
 }
 

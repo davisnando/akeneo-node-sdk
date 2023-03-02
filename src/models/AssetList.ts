@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssetListAllOfValues } from './AssetListAllOfValues';
-import {
-    AssetListAllOfValuesFromJSON,
-    AssetListAllOfValuesFromJSONTyped,
-    AssetListAllOfValuesToJSON,
-} from './AssetListAllOfValues';
 import type { ProductListAllOfLinks } from './ProductListAllOfLinks';
 import {
     ProductListAllOfLinksFromJSON,
@@ -45,19 +39,19 @@ export interface AssetList {
      */
     code: string;
     /**
-     * 
-     * @type {AssetListAllOfValues}
+     * Asset attributes values, see the <a href='/concepts/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details.
+     * @type {{ [key: string]: Array<object>; }}
      * @memberof AssetList
      */
-    values?: AssetListAllOfValues;
+    values?: { [key: string]: Array<object>; };
     /**
-     * Date of creation (Only available on SaaS versions)
+     * Date of creation
      * @type {string}
      * @memberof AssetList
      */
     created?: string;
     /**
-     * Date of the last update (Only available on SaaS versions)
+     * Date of the last update
      * @type {string}
      * @memberof AssetList
      */
@@ -86,7 +80,7 @@ export function AssetListFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
         'links': !exists(json, '_links') ? undefined : ProductListAllOfLinksFromJSON(json['_links']),
         'code': json['code'],
-        'values': !exists(json, 'values') ? undefined : AssetListAllOfValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
     };
@@ -103,7 +97,7 @@ export function AssetListToJSON(value?: AssetList | null): any {
         
         '_links': ProductListAllOfLinksToJSON(value.links),
         'code': value.code,
-        'values': AssetListAllOfValuesToJSON(value.values),
+        'values': value.values,
         'created': value.created,
         'updated': value.updated,
     };

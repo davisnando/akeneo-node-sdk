@@ -16,20 +16,20 @@
 import * as runtime from '../runtime';
 import type {
   Asset,
+  AssetEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchAssetCodeRequest,
-  PatchAssetsRequestInner,
   PatchReferenceEntityRecords200ResponseInner,
 } from '../models';
 import {
     AssetFromJSON,
     AssetToJSON,
+    AssetEmbeddedItemsInnerAllOfFromJSON,
+    AssetEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchAssetCodeRequestFromJSON,
     PatchAssetCodeRequestToJSON,
-    PatchAssetsRequestInnerFromJSON,
-    PatchAssetsRequestInnerToJSON,
     PatchReferenceEntityRecords200ResponseInnerFromJSON,
     PatchReferenceEntityRecords200ResponseInnerToJSON,
 } from '../models';
@@ -60,7 +60,7 @@ export interface PatchAssetCodeOperationRequest {
 
 export interface PatchAssetsRequest {
     assetFamilyCode: string;
-    body: Array<PatchAssetsRequestInner>;
+    body: Array<AssetEmbeddedItemsInnerAllOf>;
 }
 
 /**
@@ -155,7 +155,7 @@ export class AssetApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given asset for a given asset family. This endpoint is case sensitive on the asset family code.
      * Get an asset of a given asset family
      */
-    async getAssetsCodeRaw(requestParameters: GetAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchAssetsRequestInner>> {
+    async getAssetsCodeRaw(requestParameters: GetAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssetEmbeddedItemsInnerAllOf>> {
         if (requestParameters.assetFamilyCode === null || requestParameters.assetFamilyCode === undefined) {
             throw new runtime.RequiredError('assetFamilyCode','Required parameter requestParameters.assetFamilyCode was null or undefined when calling getAssetsCode.');
         }
@@ -175,14 +175,14 @@ export class AssetApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PatchAssetsRequestInnerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AssetEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given asset for a given asset family. This endpoint is case sensitive on the asset family code.
      * Get an asset of a given asset family
      */
-    async getAssetsCode(requestParameters: GetAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchAssetsRequestInner> {
+    async getAssetsCode(requestParameters: GetAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssetEmbeddedItemsInnerAllOf> {
         const response = await this.getAssetsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -253,7 +253,7 @@ export class AssetApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.body.map(PatchAssetsRequestInnerToJSON),
+            body: requestParameters.body.map(AssetEmbeddedItemsInnerAllOfToJSON),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PatchReferenceEntityRecords200ResponseInnerFromJSON));

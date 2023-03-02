@@ -16,7 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   AttributeGroups,
-  AttributeGroupsPostRequest,
+  AttributeGroupsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchProducts200Response,
   SeveralAttributeGroupsPatchRequest,
@@ -24,8 +24,8 @@ import type {
 import {
     AttributeGroupsFromJSON,
     AttributeGroupsToJSON,
-    AttributeGroupsPostRequestFromJSON,
-    AttributeGroupsPostRequestToJSON,
+    AttributeGroupsEmbeddedItemsInnerAllOfFromJSON,
+    AttributeGroupsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchProducts200ResponseFromJSON,
@@ -47,11 +47,11 @@ export interface AttributeGroupsGetListRequest {
 
 export interface AttributeGroupsPatchRequest {
     code: string;
-    body: AttributeGroupsPostRequest;
+    body: AttributeGroupsEmbeddedItemsInnerAllOf;
 }
 
-export interface AttributeGroupsPostOperationRequest {
-    body?: AttributeGroupsPostRequest;
+export interface AttributeGroupsPostRequest {
+    body?: AttributeGroupsEmbeddedItemsInnerAllOf;
 }
 
 export interface SeveralAttributeGroupsPatchOperationRequest {
@@ -67,7 +67,7 @@ export class AttributeGroupApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given attribute group.
      * Get an attribute group
      */
-    async attributeGroupsGetRaw(requestParameters: AttributeGroupsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttributeGroupsPostRequest>> {
+    async attributeGroupsGetRaw(requestParameters: AttributeGroupsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttributeGroupsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling attributeGroupsGet.');
         }
@@ -83,14 +83,14 @@ export class AttributeGroupApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttributeGroupsPostRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttributeGroupsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given attribute group.
      * Get an attribute group
      */
-    async attributeGroupsGet(requestParameters: AttributeGroupsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttributeGroupsPostRequest> {
+    async attributeGroupsGet(requestParameters: AttributeGroupsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttributeGroupsEmbeddedItemsInnerAllOf> {
         const response = await this.attributeGroupsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -163,7 +163,7 @@ export class AttributeGroupApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: AttributeGroupsPostRequestToJSON(requestParameters.body),
+            body: AttributeGroupsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -181,7 +181,7 @@ export class AttributeGroupApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new attribute group.
      * Create a new attribute group
      */
-    async attributeGroupsPostRaw(requestParameters: AttributeGroupsPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async attributeGroupsPostRaw(requestParameters: AttributeGroupsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -193,7 +193,7 @@ export class AttributeGroupApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AttributeGroupsPostRequestToJSON(requestParameters.body),
+            body: AttributeGroupsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -203,7 +203,7 @@ export class AttributeGroupApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new attribute group.
      * Create a new attribute group
      */
-    async attributeGroupsPost(requestParameters: AttributeGroupsPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async attributeGroupsPost(requestParameters: AttributeGroupsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.attributeGroupsPostRaw(requestParameters, initOverrides);
     }
 

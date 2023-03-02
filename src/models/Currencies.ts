@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { CurrenciesEmbedded } from './CurrenciesEmbedded';
+import {
+    CurrenciesEmbeddedFromJSON,
+    CurrenciesEmbeddedFromJSONTyped,
+    CurrenciesEmbeddedToJSON,
+} from './CurrenciesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Currencies
  */
 export interface Currencies {
+    /**
+     * 
+     * @type {CurrenciesEmbedded}
+     * @memberof Currencies
+     */
+    embedded?: CurrenciesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function CurrenciesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : CurrenciesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function CurrenciesToJSON(value?: Currencies | null): any {
     }
     return {
         
+        '_embedded': CurrenciesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

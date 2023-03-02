@@ -17,15 +17,15 @@ import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
   MeasureFamilies,
-  MeasureFamiliesGet200Response,
+  MeasureFamiliesEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     MeasureFamiliesFromJSON,
     MeasureFamiliesToJSON,
-    MeasureFamiliesGet200ResponseFromJSON,
-    MeasureFamiliesGet200ResponseToJSON,
+    MeasureFamiliesEmbeddedItemsInnerAllOfFromJSON,
+    MeasureFamiliesEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface MeasureFamiliesGetRequest {
@@ -41,7 +41,7 @@ export class MeasureFamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given measure family.
      * Get a measure family
      */
-    async measureFamiliesGetRaw(requestParameters: MeasureFamiliesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MeasureFamiliesGet200Response>> {
+    async measureFamiliesGetRaw(requestParameters: MeasureFamiliesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MeasureFamiliesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling measureFamiliesGet.');
         }
@@ -57,14 +57,14 @@ export class MeasureFamilyApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => MeasureFamiliesGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => MeasureFamiliesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given measure family.
      * Get a measure family
      */
-    async measureFamiliesGet(requestParameters: MeasureFamiliesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MeasureFamiliesGet200Response> {
+    async measureFamiliesGet(requestParameters: MeasureFamiliesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MeasureFamiliesEmbeddedItemsInnerAllOf> {
         const response = await this.measureFamiliesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }

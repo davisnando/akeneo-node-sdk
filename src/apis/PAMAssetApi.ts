@@ -15,20 +15,20 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetPamAssetsCode200Response,
   GetProducts401Response,
   PAMAssets,
+  PAMAssetsEmbeddedItemsInnerAllOf,
   PatchPamAssetsRequest,
   PatchProducts200Response,
   PostPamAssetsRequest,
 } from '../models';
 import {
-    GetPamAssetsCode200ResponseFromJSON,
-    GetPamAssetsCode200ResponseToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PAMAssetsFromJSON,
     PAMAssetsToJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfFromJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfToJSON,
     PatchPamAssetsRequestFromJSON,
     PatchPamAssetsRequestToJSON,
     PatchProducts200ResponseFromJSON,
@@ -119,7 +119,7 @@ export class PAMAssetApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given PAM asset.
      * Get a PAM asset
      */
-    async getPamAssetsCodeRaw(requestParameters: GetPamAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPamAssetsCode200Response>> {
+    async getPamAssetsCodeRaw(requestParameters: GetPamAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PAMAssetsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getPamAssetsCode.');
         }
@@ -135,14 +135,14 @@ export class PAMAssetApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetPamAssetsCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PAMAssetsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given PAM asset.
      * Get a PAM asset
      */
-    async getPamAssetsCode(requestParameters: GetPamAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPamAssetsCode200Response> {
+    async getPamAssetsCode(requestParameters: GetPamAssetsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PAMAssetsEmbeddedItemsInnerAllOf> {
         const response = await this.getPamAssetsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

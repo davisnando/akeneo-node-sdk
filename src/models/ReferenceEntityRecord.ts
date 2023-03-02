@@ -19,6 +19,12 @@ import {
     ReferenceEntitiesLinksFromJSONTyped,
     ReferenceEntitiesLinksToJSON,
 } from './ReferenceEntitiesLinks';
+import type { ReferenceEntityRecordEmbedded } from './ReferenceEntityRecordEmbedded';
+import {
+    ReferenceEntityRecordEmbeddedFromJSON,
+    ReferenceEntityRecordEmbeddedFromJSONTyped,
+    ReferenceEntityRecordEmbeddedToJSON,
+} from './ReferenceEntityRecordEmbedded';
 
 /**
  * 
@@ -26,6 +32,12 @@ import {
  * @interface ReferenceEntityRecord
  */
 export interface ReferenceEntityRecord {
+    /**
+     * 
+     * @type {ReferenceEntityRecordEmbedded}
+     * @memberof ReferenceEntityRecord
+     */
+    embedded?: ReferenceEntityRecordEmbedded;
     /**
      * 
      * @type {ReferenceEntitiesLinks}
@@ -53,6 +65,7 @@ export function ReferenceEntityRecordFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : ReferenceEntityRecordEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ReferenceEntitiesLinksFromJSON(json['_links']),
     };
 }
@@ -66,6 +79,7 @@ export function ReferenceEntityRecordToJSON(value?: ReferenceEntityRecord | null
     }
     return {
         
+        '_embedded': ReferenceEntityRecordEmbeddedToJSON(value.embedded),
         '_links': ReferenceEntitiesLinksToJSON(value.links),
     };
 }

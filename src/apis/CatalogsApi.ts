@@ -16,17 +16,17 @@
 import * as runtime from '../runtime';
 import type {
   Catalogs,
+  CatalogsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
-  PostAppCatalog201Response,
   PostAppCatalogRequest,
 } from '../models';
 import {
     CatalogsFromJSON,
     CatalogsToJSON,
+    CatalogsEmbeddedItemsInnerAllOfFromJSON,
+    CatalogsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
-    PostAppCatalog201ResponseFromJSON,
-    PostAppCatalog201ResponseToJSON,
     PostAppCatalogRequestFromJSON,
     PostAppCatalogRequestToJSON,
 } from '../models';
@@ -93,7 +93,7 @@ export class CatalogsApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a catalog.
      * Get a catalog
      */
-    async getAppCatalogRaw(requestParameters: GetAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppCatalog201Response>> {
+    async getAppCatalogRaw(requestParameters: GetAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CatalogsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling getAppCatalog.');
         }
@@ -109,14 +109,14 @@ export class CatalogsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppCatalog201ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CatalogsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a catalog.
      * Get a catalog
      */
-    async getAppCatalog(requestParameters: GetAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppCatalog201Response> {
+    async getAppCatalog(requestParameters: GetAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CatalogsEmbeddedItemsInnerAllOf> {
         const response = await this.getAppCatalogRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -161,7 +161,7 @@ export class CatalogsApi extends runtime.BaseAPI {
      * This endpoint allows you to update a catalog.
      * Update a catalog
      */
-    async patchAppCatalogRaw(requestParameters: PatchAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppCatalog201Response>> {
+    async patchAppCatalogRaw(requestParameters: PatchAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CatalogsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling patchAppCatalog.');
         }
@@ -180,14 +180,14 @@ export class CatalogsApi extends runtime.BaseAPI {
             body: PostAppCatalogRequestToJSON(requestParameters.body),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppCatalog201ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CatalogsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to update a catalog.
      * Update a catalog
      */
-    async patchAppCatalog(requestParameters: PatchAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppCatalog201Response> {
+    async patchAppCatalog(requestParameters: PatchAppCatalogRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CatalogsEmbeddedItemsInnerAllOf> {
         const response = await this.patchAppCatalogRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -196,7 +196,7 @@ export class CatalogsApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new catalog.
      * Create a new catalog
      */
-    async postAppCatalogRaw(requestParameters: PostAppCatalogOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppCatalog201Response>> {
+    async postAppCatalogRaw(requestParameters: PostAppCatalogOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CatalogsEmbeddedItemsInnerAllOf>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -211,14 +211,14 @@ export class CatalogsApi extends runtime.BaseAPI {
             body: PostAppCatalogRequestToJSON(requestParameters.body),
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppCatalog201ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CatalogsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to create a new catalog.
      * Create a new catalog
      */
-    async postAppCatalog(requestParameters: PostAppCatalogOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppCatalog201Response> {
+    async postAppCatalog(requestParameters: PostAppCatalogOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CatalogsEmbeddedItemsInnerAllOf> {
         const response = await this.postAppCatalogRaw(requestParameters, initOverrides);
         return await response.value();
     }

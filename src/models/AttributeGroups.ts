@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AttributeGroupsEmbedded } from './AttributeGroupsEmbedded';
+import {
+    AttributeGroupsEmbeddedFromJSON,
+    AttributeGroupsEmbeddedFromJSONTyped,
+    AttributeGroupsEmbeddedToJSON,
+} from './AttributeGroupsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface AttributeGroups
  */
 export interface AttributeGroups {
+    /**
+     * 
+     * @type {AttributeGroupsEmbedded}
+     * @memberof AttributeGroups
+     */
+    embedded?: AttributeGroupsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function AttributeGroupsFromJSONTyped(json: any, ignoreDiscriminator: boo
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : AttributeGroupsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function AttributeGroupsToJSON(value?: AttributeGroups | null): any {
     }
     return {
         
+        '_embedded': AttributeGroupsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

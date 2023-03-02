@@ -16,7 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   Attributes,
-  GetAttributesCode200Response,
+  AttributesEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchAttributesRequest,
   PatchProducts200Response,
@@ -25,8 +25,8 @@ import type {
 import {
     AttributesFromJSON,
     AttributesToJSON,
-    GetAttributesCode200ResponseFromJSON,
-    GetAttributesCode200ResponseToJSON,
+    AttributesEmbeddedItemsInnerAllOfFromJSON,
+    AttributesEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchAttributesRequestFromJSON,
@@ -120,7 +120,7 @@ export class AttributeApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given attribute.
      * Get an attribute
      */
-    async getAttributesCodeRaw(requestParameters: GetAttributesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAttributesCode200Response>> {
+    async getAttributesCodeRaw(requestParameters: GetAttributesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttributesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getAttributesCode.');
         }
@@ -140,14 +140,14 @@ export class AttributeApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAttributesCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttributesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given attribute.
      * Get an attribute
      */
-    async getAttributesCode(requestParameters: GetAttributesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAttributesCode200Response> {
+    async getAttributesCode(requestParameters: GetAttributesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttributesEmbeddedItemsInnerAllOf> {
         const response = await this.getAttributesCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

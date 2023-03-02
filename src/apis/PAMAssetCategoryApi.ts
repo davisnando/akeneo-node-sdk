@@ -17,21 +17,21 @@ import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
   PAMAssetCategories,
+  PAMAssetCategoriesEmbeddedItemsInnerAllOf,
   PatchAssetCategoriesRequest,
   PatchProducts200Response,
-  PostAssetCategoriesRequest,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PAMAssetCategoriesFromJSON,
     PAMAssetCategoriesToJSON,
+    PAMAssetCategoriesEmbeddedItemsInnerAllOfFromJSON,
+    PAMAssetCategoriesEmbeddedItemsInnerAllOfToJSON,
     PatchAssetCategoriesRequestFromJSON,
     PatchAssetCategoriesRequestToJSON,
     PatchProducts200ResponseFromJSON,
     PatchProducts200ResponseToJSON,
-    PostAssetCategoriesRequestFromJSON,
-    PostAssetCategoriesRequestToJSON,
 } from '../models';
 
 export interface GetAssetCategoriesRequest {
@@ -50,11 +50,11 @@ export interface PatchAssetCategoriesOperationRequest {
 
 export interface PatchAssetCategoriesCodeRequest {
     code: string;
-    body: PostAssetCategoriesRequest;
+    body: PAMAssetCategoriesEmbeddedItemsInnerAllOf;
 }
 
-export interface PostAssetCategoriesOperationRequest {
-    body?: PostAssetCategoriesRequest;
+export interface PostAssetCategoriesRequest {
+    body?: PAMAssetCategoriesEmbeddedItemsInnerAllOf;
 }
 
 /**
@@ -106,7 +106,7 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given PAM asset category.
      * Get a PAM asset category
      */
-    async getAssetCategoriesCodeRaw(requestParameters: GetAssetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAssetCategoriesRequest>> {
+    async getAssetCategoriesCodeRaw(requestParameters: GetAssetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PAMAssetCategoriesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getAssetCategoriesCode.');
         }
@@ -122,14 +122,14 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAssetCategoriesRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PAMAssetCategoriesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given PAM asset category.
      * Get a PAM asset category
      */
-    async getAssetCategoriesCode(requestParameters: GetAssetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAssetCategoriesRequest> {
+    async getAssetCategoriesCode(requestParameters: GetAssetCategoriesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PAMAssetCategoriesEmbeddedItemsInnerAllOf> {
         const response = await this.getAssetCategoriesCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -189,7 +189,7 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAssetCategoriesRequestToJSON(requestParameters.body),
+            body: PAMAssetCategoriesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -207,7 +207,7 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new PAM asset category.
      * Create a new PAM asset category
      */
-    async postAssetCategoriesRaw(requestParameters: PostAssetCategoriesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postAssetCategoriesRaw(requestParameters: PostAssetCategoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -219,7 +219,7 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAssetCategoriesRequestToJSON(requestParameters.body),
+            body: PAMAssetCategoriesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -229,7 +229,7 @@ export class PAMAssetCategoryApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new PAM asset category.
      * Create a new PAM asset category
      */
-    async postAssetCategories(requestParameters: PostAssetCategoriesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async postAssetCategories(requestParameters: PostAssetCategoriesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.postAssetCategoriesRaw(requestParameters, initOverrides);
     }
 

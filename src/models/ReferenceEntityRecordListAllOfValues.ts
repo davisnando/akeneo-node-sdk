@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReferenceEntityRecordListAllOfValuesAttributeCode } from './ReferenceEntityRecordListAllOfValuesAttributeCode';
+import type { ReferenceEntityRecordListAllOfValuesAdditionalProperties } from './ReferenceEntityRecordListAllOfValuesAdditionalProperties';
 import {
-    ReferenceEntityRecordListAllOfValuesAttributeCodeFromJSON,
-    ReferenceEntityRecordListAllOfValuesAttributeCodeFromJSONTyped,
-    ReferenceEntityRecordListAllOfValuesAttributeCodeToJSON,
-} from './ReferenceEntityRecordListAllOfValuesAttributeCode';
+    ReferenceEntityRecordListAllOfValuesAdditionalPropertiesFromJSON,
+    ReferenceEntityRecordListAllOfValuesAdditionalPropertiesFromJSONTyped,
+    ReferenceEntityRecordListAllOfValuesAdditionalPropertiesToJSON,
+} from './ReferenceEntityRecordListAllOfValuesAdditionalProperties';
 
 /**
  * Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details
@@ -28,10 +28,10 @@ import {
 export interface ReferenceEntityRecordListAllOfValues {
     /**
      * 
-     * @type {Array<ReferenceEntityRecordListAllOfValuesAttributeCode>}
+     * @type {Array<ReferenceEntityRecordListAllOfValuesAdditionalProperties>}
      * @memberof ReferenceEntityRecordListAllOfValues
      */
-    attributeCode?: Array<ReferenceEntityRecordListAllOfValuesAttributeCode>;
+    additionalProperties?: Array<ReferenceEntityRecordListAllOfValuesAdditionalProperties>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function ReferenceEntityRecordListAllOfValuesFromJSONTyped(json: any, ign
     }
     return {
         
-        'attributeCode': !exists(json, 'attributeCode') ? undefined : ((json['attributeCode'] as Array<any>).map(ReferenceEntityRecordListAllOfValuesAttributeCodeFromJSON)),
+        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : ((json['additionalProperties'] as Array<any>).map(ReferenceEntityRecordListAllOfValuesAdditionalPropertiesFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function ReferenceEntityRecordListAllOfValuesToJSON(value?: ReferenceEnti
     }
     return {
         
-        'attributeCode': value.attributeCode === undefined ? undefined : ((value.attributeCode as Array<any>).map(ReferenceEntityRecordListAllOfValuesAttributeCodeToJSON)),
+        'additionalProperties': value.additionalProperties === undefined ? undefined : ((value.additionalProperties as Array<any>).map(ReferenceEntityRecordListAllOfValuesAdditionalPropertiesToJSON)),
     };
 }
 

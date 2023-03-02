@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AttributesEmbedded } from './AttributesEmbedded';
+import {
+    AttributesEmbeddedFromJSON,
+    AttributesEmbeddedFromJSONTyped,
+    AttributesEmbeddedToJSON,
+} from './AttributesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Attributes
  */
 export interface Attributes {
+    /**
+     * 
+     * @type {AttributesEmbedded}
+     * @memberof Attributes
+     */
+    embedded?: AttributesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function AttributesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : AttributesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function AttributesToJSON(value?: Attributes | null): any {
     }
     return {
         
+        '_embedded': AttributesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

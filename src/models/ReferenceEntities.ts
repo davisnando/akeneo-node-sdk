@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ReferenceEntitiesEmbedded } from './ReferenceEntitiesEmbedded';
+import {
+    ReferenceEntitiesEmbeddedFromJSON,
+    ReferenceEntitiesEmbeddedFromJSONTyped,
+    ReferenceEntitiesEmbeddedToJSON,
+} from './ReferenceEntitiesEmbedded';
 import type { ReferenceEntitiesLinks } from './ReferenceEntitiesLinks';
 import {
     ReferenceEntitiesLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface ReferenceEntities
  */
 export interface ReferenceEntities {
+    /**
+     * 
+     * @type {ReferenceEntitiesEmbedded}
+     * @memberof ReferenceEntities
+     */
+    embedded?: ReferenceEntitiesEmbedded;
     /**
      * 
      * @type {ReferenceEntitiesLinks}
@@ -53,6 +65,7 @@ export function ReferenceEntitiesFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : ReferenceEntitiesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ReferenceEntitiesLinksFromJSON(json['_links']),
     };
 }
@@ -66,6 +79,7 @@ export function ReferenceEntitiesToJSON(value?: ReferenceEntities | null): any {
     }
     return {
         
+        '_embedded': ReferenceEntitiesEmbeddedToJSON(value.embedded),
         '_links': ReferenceEntitiesLinksToJSON(value.links),
     };
 }

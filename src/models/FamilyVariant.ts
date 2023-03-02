@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostFamiliesFamilyCodeVariantsRequestLabels } from './PostFamiliesFamilyCodeVariantsRequestLabels';
+import type { FamilyVariantsEmbeddedItemsInnerAllOfLabels } from './FamilyVariantsEmbeddedItemsInnerAllOfLabels';
 import {
-    PostFamiliesFamilyCodeVariantsRequestLabelsFromJSON,
-    PostFamiliesFamilyCodeVariantsRequestLabelsFromJSONTyped,
-    PostFamiliesFamilyCodeVariantsRequestLabelsToJSON,
-} from './PostFamiliesFamilyCodeVariantsRequestLabels';
-import type { PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInner } from './PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInner';
+    FamilyVariantsEmbeddedItemsInnerAllOfLabelsFromJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    FamilyVariantsEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './FamilyVariantsEmbeddedItemsInnerAllOfLabels';
+import type { FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInner } from './FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInner';
 import {
-    PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInnerFromJSON,
-    PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInnerFromJSONTyped,
-    PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInnerToJSON,
-} from './PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInner';
+    FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInnerFromJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInnerFromJSONTyped,
+    FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInnerToJSON,
+} from './FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInner';
 
 /**
  * 
@@ -40,16 +40,16 @@ export interface FamilyVariant {
     code: string;
     /**
      * Attributes distribution according to the enrichment level
-     * @type {Array<PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInner>}
+     * @type {Array<FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInner>}
      * @memberof FamilyVariant
      */
-    variantAttributeSets: Array<PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInner>;
+    variantAttributeSets: Array<FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInner>;
     /**
      * 
-     * @type {PostFamiliesFamilyCodeVariantsRequestLabels}
+     * @type {FamilyVariantsEmbeddedItemsInnerAllOfLabels}
      * @memberof FamilyVariant
      */
-    labels?: PostFamiliesFamilyCodeVariantsRequestLabels;
+    labels?: FamilyVariantsEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -74,8 +74,8 @@ export function FamilyVariantFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'code': json['code'],
-        'variantAttributeSets': ((json['variant_attribute_sets'] as Array<any>).map(PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInnerFromJSON)),
-        'labels': !exists(json, 'labels') ? undefined : PostFamiliesFamilyCodeVariantsRequestLabelsFromJSON(json['labels']),
+        'variantAttributeSets': ((json['variant_attribute_sets'] as Array<any>).map(FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInnerFromJSON)),
+        'labels': !exists(json, 'labels') ? undefined : FamilyVariantsEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -89,8 +89,8 @@ export function FamilyVariantToJSON(value?: FamilyVariant | null): any {
     return {
         
         'code': value.code,
-        'variant_attribute_sets': ((value.variantAttributeSets as Array<any>).map(PostFamiliesFamilyCodeVariantsRequestVariantAttributeSetsInnerToJSON)),
-        'labels': PostFamiliesFamilyCodeVariantsRequestLabelsToJSON(value.labels),
+        'variant_attribute_sets': ((value.variantAttributeSets as Array<any>).map(FamilyVariantsEmbeddedItemsInnerAllOfVariantAttributeSetsInnerToJSON)),
+        'labels': FamilyVariantsEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

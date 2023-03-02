@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { PAMAssetTagsEmbedded } from './PAMAssetTagsEmbedded';
+import {
+    PAMAssetTagsEmbeddedFromJSON,
+    PAMAssetTagsEmbeddedFromJSONTyped,
+    PAMAssetTagsEmbeddedToJSON,
+} from './PAMAssetTagsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface PAMAssetTags
  */
 export interface PAMAssetTags {
+    /**
+     * 
+     * @type {PAMAssetTagsEmbedded}
+     * @memberof PAMAssetTags
+     */
+    embedded?: PAMAssetTagsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function PAMAssetTagsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : PAMAssetTagsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function PAMAssetTagsToJSON(value?: PAMAssetTags | null): any {
     }
     return {
         
+        '_embedded': PAMAssetTagsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

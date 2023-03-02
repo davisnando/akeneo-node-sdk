@@ -13,36 +13,36 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostProductsRequestCompletenessesInner } from './PostProductsRequestCompletenessesInner';
+import type { Products1EmbeddedItemsInnerAllOfAssociations } from './Products1EmbeddedItemsInnerAllOfAssociations';
 import {
-    PostProductsRequestCompletenessesInnerFromJSON,
-    PostProductsRequestCompletenessesInnerFromJSONTyped,
-    PostProductsRequestCompletenessesInnerToJSON,
-} from './PostProductsRequestCompletenessesInner';
-import type { PostProductsRequestMetadata } from './PostProductsRequestMetadata';
+    Products1EmbeddedItemsInnerAllOfAssociationsFromJSON,
+    Products1EmbeddedItemsInnerAllOfAssociationsFromJSONTyped,
+    Products1EmbeddedItemsInnerAllOfAssociationsToJSON,
+} from './Products1EmbeddedItemsInnerAllOfAssociations';
+import type { Products1EmbeddedItemsInnerAllOfQuantifiedAssociations } from './Products1EmbeddedItemsInnerAllOfQuantifiedAssociations';
 import {
-    PostProductsRequestMetadataFromJSON,
-    PostProductsRequestMetadataFromJSONTyped,
-    PostProductsRequestMetadataToJSON,
-} from './PostProductsRequestMetadata';
-import type { PostProductsRequestValues } from './PostProductsRequestValues';
+    Products1EmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSON,
+    Products1EmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSONTyped,
+    Products1EmbeddedItemsInnerAllOfQuantifiedAssociationsToJSON,
+} from './Products1EmbeddedItemsInnerAllOfQuantifiedAssociations';
+import type { ProductsEmbeddedItemsInnerAllOf1CompletenessesInner } from './ProductsEmbeddedItemsInnerAllOf1CompletenessesInner';
 import {
-    PostProductsRequestValuesFromJSON,
-    PostProductsRequestValuesFromJSONTyped,
-    PostProductsRequestValuesToJSON,
-} from './PostProductsRequestValues';
-import type { PostProductsUuidRequestAssociations } from './PostProductsUuidRequestAssociations';
+    ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1CompletenessesInner';
+import type { ProductsEmbeddedItemsInnerAllOf1Metadata } from './ProductsEmbeddedItemsInnerAllOf1Metadata';
 import {
-    PostProductsUuidRequestAssociationsFromJSON,
-    PostProductsUuidRequestAssociationsFromJSONTyped,
-    PostProductsUuidRequestAssociationsToJSON,
-} from './PostProductsUuidRequestAssociations';
-import type { PostProductsUuidRequestQuantifiedAssociations } from './PostProductsUuidRequestQuantifiedAssociations';
+    ProductsEmbeddedItemsInnerAllOf1MetadataFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1MetadataFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1MetadataToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1Metadata';
+import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 import {
-    PostProductsUuidRequestQuantifiedAssociationsFromJSON,
-    PostProductsUuidRequestQuantifiedAssociationsFromJSONTyped,
-    PostProductsUuidRequestQuantifiedAssociationsToJSON,
-} from './PostProductsUuidRequestQuantifiedAssociations';
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 
 /**
  * 
@@ -87,23 +87,23 @@ export interface PostProductsUuidRequest {
      */
     parent?: string;
     /**
-     * 
-     * @type {PostProductsRequestValues}
+     * Product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; }}
      * @memberof PostProductsUuidRequest
      */
-    values?: PostProductsRequestValues;
+    values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type {PostProductsUuidRequestAssociations}
+     * @type {Products1EmbeddedItemsInnerAllOfAssociations}
      * @memberof PostProductsUuidRequest
      */
-    associations?: PostProductsUuidRequestAssociations;
+    associations?: Products1EmbeddedItemsInnerAllOfAssociations;
     /**
      * 
-     * @type {PostProductsUuidRequestQuantifiedAssociations}
+     * @type {Products1EmbeddedItemsInnerAllOfQuantifiedAssociations}
      * @memberof PostProductsUuidRequest
      */
-    quantifiedAssociations?: PostProductsUuidRequestQuantifiedAssociations;
+    quantifiedAssociations?: Products1EmbeddedItemsInnerAllOfQuantifiedAssociations;
     /**
      * Date of creation
      * @type {string}
@@ -118,10 +118,10 @@ export interface PostProductsUuidRequest {
     updated?: string;
     /**
      * 
-     * @type {PostProductsRequestMetadata}
+     * @type {ProductsEmbeddedItemsInnerAllOf1Metadata}
      * @memberof PostProductsUuidRequest
      */
-    metadata?: PostProductsRequestMetadata;
+    metadata?: ProductsEmbeddedItemsInnerAllOf1Metadata;
     /**
      * Product quality scores for each channel/locale combination (only available since the 5.0 and when the "with_quality_scores" query parameter is set to "true")
      * @type {object}
@@ -129,11 +129,11 @@ export interface PostProductsUuidRequest {
      */
     qualityScores?: object;
     /**
-     * Product completenesses for each channel/locale combination (only available on SaaS platforms, and when the "with_completenesses" query parameter is set to "true")
-     * @type {Array<PostProductsRequestCompletenessesInner>}
+     * Product completenesses for each channel/locale combination (only available since the 7.0 version, and when the "with_completenesses" query parameter is set to "true")
+     * @type {Array<ProductsEmbeddedItemsInnerAllOf1CompletenessesInner>}
      * @memberof PostProductsUuidRequest
      */
-    completenesses?: Array<PostProductsRequestCompletenessesInner>;
+    completenesses?: Array<ProductsEmbeddedItemsInnerAllOf1CompletenessesInner>;
 }
 
 /**
@@ -161,14 +161,14 @@ export function PostProductsUuidRequestFromJSONTyped(json: any, ignoreDiscrimina
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
-        'values': !exists(json, 'values') ? undefined : PostProductsRequestValuesFromJSON(json['values']),
-        'associations': !exists(json, 'associations') ? undefined : PostProductsUuidRequestAssociationsFromJSON(json['associations']),
-        'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : PostProductsUuidRequestQuantifiedAssociationsFromJSON(json['quantified_associations']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
+        'associations': !exists(json, 'associations') ? undefined : Products1EmbeddedItemsInnerAllOfAssociationsFromJSON(json['associations']),
+        'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : Products1EmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
-        'metadata': !exists(json, 'metadata') ? undefined : PostProductsRequestMetadataFromJSON(json['metadata']),
+        'metadata': !exists(json, 'metadata') ? undefined : ProductsEmbeddedItemsInnerAllOf1MetadataFromJSON(json['metadata']),
         'qualityScores': !exists(json, 'quality_scores') ? undefined : json['quality_scores'],
-        'completenesses': !exists(json, 'completenesses') ? undefined : ((json['completenesses'] as Array<any>).map(PostProductsRequestCompletenessesInnerFromJSON)),
+        'completenesses': !exists(json, 'completenesses') ? undefined : ((json['completenesses'] as Array<any>).map(ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSON)),
     };
 }
 
@@ -187,14 +187,14 @@ export function PostProductsUuidRequestToJSON(value?: PostProductsUuidRequest | 
         'categories': value.categories,
         'groups': value.groups,
         'parent': value.parent,
-        'values': PostProductsRequestValuesToJSON(value.values),
-        'associations': PostProductsUuidRequestAssociationsToJSON(value.associations),
-        'quantified_associations': PostProductsUuidRequestQuantifiedAssociationsToJSON(value.quantifiedAssociations),
+        'values': value.values,
+        'associations': Products1EmbeddedItemsInnerAllOfAssociationsToJSON(value.associations),
+        'quantified_associations': Products1EmbeddedItemsInnerAllOfQuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,
         'updated': value.updated,
-        'metadata': PostProductsRequestMetadataToJSON(value.metadata),
+        'metadata': ProductsEmbeddedItemsInnerAllOf1MetadataToJSON(value.metadata),
         'quality_scores': value.qualityScores,
-        'completenesses': value.completenesses === undefined ? undefined : ((value.completenesses as Array<any>).map(PostProductsRequestCompletenessesInnerToJSON)),
+        'completenesses': value.completenesses === undefined ? undefined : ((value.completenesses as Array<any>).map(ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerToJSON)),
     };
 }
 

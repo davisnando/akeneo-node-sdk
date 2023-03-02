@@ -19,6 +19,12 @@ import {
     ProductsLinksFromJSONTyped,
     ProductsLinksToJSON,
 } from './ProductsLinks';
+import type { PublishedProductsEmbedded } from './PublishedProductsEmbedded';
+import {
+    PublishedProductsEmbeddedFromJSON,
+    PublishedProductsEmbeddedFromJSONTyped,
+    PublishedProductsEmbeddedToJSON,
+} from './PublishedProductsEmbedded';
 
 /**
  * 
@@ -26,6 +32,12 @@ import {
  * @interface PublishedProducts
  */
 export interface PublishedProducts {
+    /**
+     * 
+     * @type {PublishedProductsEmbedded}
+     * @memberof PublishedProducts
+     */
+    embedded?: PublishedProductsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function PublishedProductsFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : PublishedProductsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function PublishedProductsToJSON(value?: PublishedProducts | null): any {
     }
     return {
         
+        '_embedded': PublishedProductsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

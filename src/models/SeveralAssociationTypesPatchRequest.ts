@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssociationTypesPostRequestLabels } from './AssociationTypesPostRequestLabels';
+import type { AssociationTypesEmbeddedItemsInnerAllOfLabels } from './AssociationTypesEmbeddedItemsInnerAllOfLabels';
 import {
-    AssociationTypesPostRequestLabelsFromJSON,
-    AssociationTypesPostRequestLabelsFromJSONTyped,
-    AssociationTypesPostRequestLabelsToJSON,
-} from './AssociationTypesPostRequestLabels';
+    AssociationTypesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AssociationTypesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AssociationTypesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AssociationTypesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -34,10 +34,10 @@ export interface SeveralAssociationTypesPatchRequest {
     code: string;
     /**
      * 
-     * @type {AssociationTypesPostRequestLabels}
+     * @type {AssociationTypesEmbeddedItemsInnerAllOfLabels}
      * @memberof SeveralAssociationTypesPatchRequest
      */
-    labels?: AssociationTypesPostRequestLabels;
+    labels?: AssociationTypesEmbeddedItemsInnerAllOfLabels;
     /**
      * When true, the association is a quantified association (Only available in the PIM Serenity version.)
      * @type {boolean}
@@ -73,7 +73,7 @@ export function SeveralAssociationTypesPatchRequestFromJSONTyped(json: any, igno
     return {
         
         'code': json['code'],
-        'labels': !exists(json, 'labels') ? undefined : AssociationTypesPostRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AssociationTypesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
         'isQuantified': !exists(json, 'is_quantified') ? undefined : json['is_quantified'],
         'isTwoWay': !exists(json, 'is_two_way') ? undefined : json['is_two_way'],
     };
@@ -89,7 +89,7 @@ export function SeveralAssociationTypesPatchRequestToJSON(value?: SeveralAssocia
     return {
         
         'code': value.code,
-        'labels': AssociationTypesPostRequestLabelsToJSON(value.labels),
+        'labels': AssociationTypesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
         'is_quantified': value.isQuantified,
         'is_two_way': value.isTwoWay,
     };

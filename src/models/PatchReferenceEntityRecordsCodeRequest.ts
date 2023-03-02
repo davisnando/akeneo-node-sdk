@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PatchReferenceEntityRecordsRequestInnerValues } from './PatchReferenceEntityRecordsRequestInnerValues';
+import type { ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInner } from './ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInner';
 import {
-    PatchReferenceEntityRecordsRequestInnerValuesFromJSON,
-    PatchReferenceEntityRecordsRequestInnerValuesFromJSONTyped,
-    PatchReferenceEntityRecordsRequestInnerValuesToJSON,
-} from './PatchReferenceEntityRecordsRequestInnerValues';
+    ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInnerFromJSON,
+    ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInnerFromJSONTyped,
+    ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInnerToJSON,
+} from './ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInner';
 
 /**
  * 
@@ -33,19 +33,19 @@ export interface PatchReferenceEntityRecordsCodeRequest {
      */
     code: string;
     /**
-     * 
-     * @type {PatchReferenceEntityRecordsRequestInnerValues}
+     * Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details
+     * @type {{ [key: string]: Array<ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInner>; }}
      * @memberof PatchReferenceEntityRecordsCodeRequest
      */
-    values?: PatchReferenceEntityRecordsRequestInnerValues;
+    values?: { [key: string]: Array<ReferenceEntityRecordEmbeddedItemsInnerAllOfValuesValueInner>; };
     /**
-     * Date of creation. (Only available on SaaS platforms)
+     * Date of creation.
      * @type {string}
      * @memberof PatchReferenceEntityRecordsCodeRequest
      */
     created?: string;
     /**
-     * Date of the last update. (Only available on SaaS platforms)
+     * Date of the last update.
      * @type {string}
      * @memberof PatchReferenceEntityRecordsCodeRequest
      */
@@ -73,7 +73,7 @@ export function PatchReferenceEntityRecordsCodeRequestFromJSONTyped(json: any, i
     return {
         
         'code': json['code'],
-        'values': !exists(json, 'values') ? undefined : PatchReferenceEntityRecordsRequestInnerValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
     };
@@ -89,7 +89,7 @@ export function PatchReferenceEntityRecordsCodeRequestToJSON(value?: PatchRefere
     return {
         
         'code': value.code,
-        'values': PatchReferenceEntityRecordsRequestInnerValuesToJSON(value.values),
+        'values': value.values,
         'created': value.created,
         'updated': value.updated,
     };

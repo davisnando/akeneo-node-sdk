@@ -16,22 +16,22 @@
 import * as runtime from '../runtime';
 import type {
   AttributeOptions,
+  AttributeOptionsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchAttributesAttributeCodeOptionsRequest,
   PatchProducts200Response,
-  PostAttributesAttributeCodeOptionsRequest,
 } from '../models';
 import {
     AttributeOptionsFromJSON,
     AttributeOptionsToJSON,
+    AttributeOptionsEmbeddedItemsInnerAllOfFromJSON,
+    AttributeOptionsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchAttributesAttributeCodeOptionsRequestFromJSON,
     PatchAttributesAttributeCodeOptionsRequestToJSON,
     PatchProducts200ResponseFromJSON,
     PatchProducts200ResponseToJSON,
-    PostAttributesAttributeCodeOptionsRequestFromJSON,
-    PostAttributesAttributeCodeOptionsRequestToJSON,
 } from '../models';
 
 export interface GetAttributesAttributeCodeOptionsRequest {
@@ -54,12 +54,12 @@ export interface PatchAttributesAttributeCodeOptionsOperationRequest {
 export interface PatchAttributesAttributeCodeOptionsCodeRequest {
     attributeCode: string;
     code: string;
-    body: PostAttributesAttributeCodeOptionsRequest;
+    body: AttributeOptionsEmbeddedItemsInnerAllOf;
 }
 
-export interface PostAttributesAttributeCodeOptionsOperationRequest {
+export interface PostAttributesAttributeCodeOptionsRequest {
     attributeCode: string;
-    body?: PostAttributesAttributeCodeOptionsRequest;
+    body?: AttributeOptionsEmbeddedItemsInnerAllOf;
 }
 
 /**
@@ -115,7 +115,7 @@ export class AttributeOptionApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given attribute option.
      * Get an attribute option
      */
-    async getAttributesAttributeCodeOptionsCodeRaw(requestParameters: GetAttributesAttributeCodeOptionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAttributesAttributeCodeOptionsRequest>> {
+    async getAttributesAttributeCodeOptionsCodeRaw(requestParameters: GetAttributesAttributeCodeOptionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttributeOptionsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.attributeCode === null || requestParameters.attributeCode === undefined) {
             throw new runtime.RequiredError('attributeCode','Required parameter requestParameters.attributeCode was null or undefined when calling getAttributesAttributeCodeOptionsCode.');
         }
@@ -135,14 +135,14 @@ export class AttributeOptionApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostAttributesAttributeCodeOptionsRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttributeOptionsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given attribute option.
      * Get an attribute option
      */
-    async getAttributesAttributeCodeOptionsCode(requestParameters: GetAttributesAttributeCodeOptionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAttributesAttributeCodeOptionsRequest> {
+    async getAttributesAttributeCodeOptionsCode(requestParameters: GetAttributesAttributeCodeOptionsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttributeOptionsEmbeddedItemsInnerAllOf> {
         const response = await this.getAttributesAttributeCodeOptionsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -210,7 +210,7 @@ export class AttributeOptionApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAttributesAttributeCodeOptionsRequestToJSON(requestParameters.body),
+            body: AttributeOptionsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -228,7 +228,7 @@ export class AttributeOptionApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new attribute option.
      * Create a new attribute option
      */
-    async postAttributesAttributeCodeOptionsRaw(requestParameters: PostAttributesAttributeCodeOptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postAttributesAttributeCodeOptionsRaw(requestParameters: PostAttributesAttributeCodeOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.attributeCode === null || requestParameters.attributeCode === undefined) {
             throw new runtime.RequiredError('attributeCode','Required parameter requestParameters.attributeCode was null or undefined when calling postAttributesAttributeCodeOptions.');
         }
@@ -244,7 +244,7 @@ export class AttributeOptionApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostAttributesAttributeCodeOptionsRequestToJSON(requestParameters.body),
+            body: AttributeOptionsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -254,7 +254,7 @@ export class AttributeOptionApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new attribute option.
      * Create a new attribute option
      */
-    async postAttributesAttributeCodeOptions(requestParameters: PostAttributesAttributeCodeOptionsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async postAttributesAttributeCodeOptions(requestParameters: PostAttributesAttributeCodeOptionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.postAttributesAttributeCodeOptionsRaw(requestParameters, initOverrides);
     }
 

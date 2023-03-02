@@ -19,12 +19,6 @@ import {
     ProductListAllOfLinksFromJSONTyped,
     ProductListAllOfLinksToJSON,
 } from './ProductListAllOfLinks';
-import type { ReferenceEntityRecordListAllOfValues } from './ReferenceEntityRecordListAllOfValues';
-import {
-    ReferenceEntityRecordListAllOfValuesFromJSON,
-    ReferenceEntityRecordListAllOfValuesFromJSONTyped,
-    ReferenceEntityRecordListAllOfValuesToJSON,
-} from './ReferenceEntityRecordListAllOfValues';
 
 /**
  * 
@@ -45,19 +39,19 @@ export interface ReferenceEntityRecordList {
      */
     code: string;
     /**
-     * 
-     * @type {ReferenceEntityRecordListAllOfValues}
+     * Record attributes values, see <a href='/concepts/reference-entities.html#focus-on-the-reference-entity-record-values'>Reference entity record values</a> section for more details
+     * @type {{ [key: string]: Array<object>; }}
      * @memberof ReferenceEntityRecordList
      */
-    values?: ReferenceEntityRecordListAllOfValues;
+    values?: { [key: string]: Array<object>; };
     /**
-     * Date of creation. (Only available on SaaS platforms)
+     * Date of creation.
      * @type {string}
      * @memberof ReferenceEntityRecordList
      */
     created?: string;
     /**
-     * Date of the last update. (Only available on SaaS platforms)
+     * Date of the last update.
      * @type {string}
      * @memberof ReferenceEntityRecordList
      */
@@ -86,7 +80,7 @@ export function ReferenceEntityRecordListFromJSONTyped(json: any, ignoreDiscrimi
         
         'links': !exists(json, '_links') ? undefined : ProductListAllOfLinksFromJSON(json['_links']),
         'code': json['code'],
-        'values': !exists(json, 'values') ? undefined : ReferenceEntityRecordListAllOfValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
     };
@@ -103,7 +97,7 @@ export function ReferenceEntityRecordListToJSON(value?: ReferenceEntityRecordLis
         
         '_links': ProductListAllOfLinksToJSON(value.links),
         'code': value.code,
-        'values': ReferenceEntityRecordListAllOfValuesToJSON(value.values),
+        'values': value.values,
         'created': value.created,
         'updated': value.updated,
     };

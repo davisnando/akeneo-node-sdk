@@ -63,7 +63,7 @@ export interface CategoryList {
      */
     updated?: string;
     /**
-     * Position of the category in its level, start from 1 (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+     * Position of the category in its level, start from 1 (only available since the 7.0 version and when query parameter "with_position" is set to "true")
      * @type {number}
      * @memberof CategoryList
      */

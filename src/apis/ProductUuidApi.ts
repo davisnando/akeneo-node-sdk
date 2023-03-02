@@ -16,25 +16,25 @@
 import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
-  GetProductsUuidUuid200Response,
   PatchProductsUuid200Response,
   PatchProductsUuidRequest,
   PostProductsUuidRequest,
-  Products,
+  Products1,
+  Products1EmbeddedItemsInnerAllOf,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
-    GetProductsUuidUuid200ResponseFromJSON,
-    GetProductsUuidUuid200ResponseToJSON,
     PatchProductsUuid200ResponseFromJSON,
     PatchProductsUuid200ResponseToJSON,
     PatchProductsUuidRequestFromJSON,
     PatchProductsUuidRequestToJSON,
     PostProductsUuidRequestFromJSON,
     PostProductsUuidRequestToJSON,
-    ProductsFromJSON,
-    ProductsToJSON,
+    Products1FromJSON,
+    Products1ToJSON,
+    Products1EmbeddedItemsInnerAllOfFromJSON,
+    Products1EmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface DeleteProductsUuidUuidRequest {
@@ -124,7 +124,7 @@ export class ProductUuidApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given draft.
      * Get a draft
      */
-    async getDraftUuidUuidRaw(requestParameters: GetDraftUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetProductsUuidUuid200Response>> {
+    async getDraftUuidUuidRaw(requestParameters: GetDraftUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products1EmbeddedItemsInnerAllOf>> {
         if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getDraftUuidUuid.');
         }
@@ -140,14 +140,14 @@ export class ProductUuidApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetProductsUuidUuid200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Products1EmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given draft.
      * Get a draft
      */
-    async getDraftUuidUuid(requestParameters: GetDraftUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetProductsUuidUuid200Response> {
+    async getDraftUuidUuid(requestParameters: GetDraftUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products1EmbeddedItemsInnerAllOf> {
         const response = await this.getDraftUuidUuidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -156,7 +156,7 @@ export class ProductUuidApi extends runtime.BaseAPI {
      * This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your user groups are applied to the set of products you request.
      * Get list of products
      */
-    async getProductsUuidRaw(requestParameters: GetProductsUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products>> {
+    async getProductsUuidRaw(requestParameters: GetProductsUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products1>> {
         const queryParameters: any = {};
 
         if (requestParameters.search !== undefined) {
@@ -216,14 +216,14 @@ export class ProductUuidApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ProductsFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Products1FromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get a list of products. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your user groups are applied to the set of products you request.
      * Get list of products
      */
-    async getProductsUuid(requestParameters: GetProductsUuidRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products> {
+    async getProductsUuid(requestParameters: GetProductsUuidRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products1> {
         const response = await this.getProductsUuidRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -232,7 +232,7 @@ export class ProductUuidApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given product. In the Entreprise Edition, permissions based on your user groups are applied to the product you request.
      * Get a product
      */
-    async getProductsUuidUuidRaw(requestParameters: GetProductsUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetProductsUuidUuid200Response>> {
+    async getProductsUuidUuidRaw(requestParameters: GetProductsUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products1EmbeddedItemsInnerAllOf>> {
         if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getProductsUuidUuid.');
         }
@@ -260,14 +260,14 @@ export class ProductUuidApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetProductsUuidUuid200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Products1EmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given product. In the Entreprise Edition, permissions based on your user groups are applied to the product you request.
      * Get a product
      */
-    async getProductsUuidUuid(requestParameters: GetProductsUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetProductsUuidUuid200Response> {
+    async getProductsUuidUuid(requestParameters: GetProductsUuidUuidRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products1EmbeddedItemsInnerAllOf> {
         const response = await this.getProductsUuidUuidRaw(requestParameters, initOverrides);
         return await response.value();
     }

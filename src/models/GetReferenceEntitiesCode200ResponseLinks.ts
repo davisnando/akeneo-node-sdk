@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GetReferenceEntitiesCode200ResponseLinksImageDownload } from './GetReferenceEntitiesCode200ResponseLinksImageDownload';
+import type { ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownload } from './ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownload';
 import {
-    GetReferenceEntitiesCode200ResponseLinksImageDownloadFromJSON,
-    GetReferenceEntitiesCode200ResponseLinksImageDownloadFromJSONTyped,
-    GetReferenceEntitiesCode200ResponseLinksImageDownloadToJSON,
-} from './GetReferenceEntitiesCode200ResponseLinksImageDownload';
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownloadFromJSON,
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownloadFromJSONTyped,
+    ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownloadToJSON,
+} from './ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownload';
 
 /**
  * 
@@ -28,10 +28,10 @@ import {
 export interface GetReferenceEntitiesCode200ResponseLinks {
     /**
      * 
-     * @type {GetReferenceEntitiesCode200ResponseLinksImageDownload}
+     * @type {ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownload}
      * @memberof GetReferenceEntitiesCode200ResponseLinks
      */
-    imageDownload?: GetReferenceEntitiesCode200ResponseLinksImageDownload;
+    imageDownload?: ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownload;
 }
 
 /**
@@ -53,7 +53,7 @@ export function GetReferenceEntitiesCode200ResponseLinksFromJSONTyped(json: any,
     }
     return {
         
-        'imageDownload': !exists(json, 'image_download') ? undefined : GetReferenceEntitiesCode200ResponseLinksImageDownloadFromJSON(json['image_download']),
+        'imageDownload': !exists(json, 'image_download') ? undefined : ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownloadFromJSON(json['image_download']),
     };
 }
 
@@ -66,7 +66,7 @@ export function GetReferenceEntitiesCode200ResponseLinksToJSON(value?: GetRefere
     }
     return {
         
-        'image_download': GetReferenceEntitiesCode200ResponseLinksImageDownloadToJSON(value.imageDownload),
+        'image_download': ReferenceEntitiesEmbeddedItemsInnerAllOfLinksImageDownloadToJSON(value.imageDownload),
     };
 }
 

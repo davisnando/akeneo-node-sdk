@@ -37,12 +37,6 @@ import {
     ProductModelListAllOfQuantifiedAssociationsFromJSONTyped,
     ProductModelListAllOfQuantifiedAssociationsToJSON,
 } from './ProductModelListAllOfQuantifiedAssociations';
-import type { ProductModelListAllOfValues } from './ProductModelListAllOfValues';
-import {
-    ProductModelListAllOfValuesFromJSON,
-    ProductModelListAllOfValuesFromJSONTyped,
-    ProductModelListAllOfValuesToJSON,
-} from './ProductModelListAllOfValues';
 
 /**
  * 
@@ -87,11 +81,11 @@ export interface ProductModelList {
      */
     categories?: Array<string>;
     /**
-     * 
-     * @type {ProductModelListAllOfValues}
+     * Product model attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<object>; }}
      * @memberof ProductModelList
      */
-    values?: ProductModelListAllOfValues;
+    values?: { [key: string]: Array<object>; };
     /**
      * 
      * @type {ProductModelListAllOfAssociations}
@@ -123,7 +117,7 @@ export interface ProductModelList {
      */
     metadata?: ProductModelListAllOfMetadata;
     /**
-     * Product model quality scores for each channel/locale combination (<strong>only available on SaaS platforms</strong> and when the "with_quality_scores" query parameter is set to "true")
+     * Product model quality scores for each channel/locale combination (<strong>only available since the 7.0 version</strong> and when the "with_quality_scores" query parameter is set to "true")
      * @type {object}
      * @memberof ProductModelList
      */
@@ -157,7 +151,7 @@ export function ProductModelListFromJSONTyped(json: any, ignoreDiscriminator: bo
         'familyVariant': json['family_variant'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
-        'values': !exists(json, 'values') ? undefined : ProductModelListAllOfValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'associations': !exists(json, 'associations') ? undefined : ProductModelListAllOfAssociationsFromJSON(json['associations']),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : ProductModelListAllOfQuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
@@ -182,7 +176,7 @@ export function ProductModelListToJSON(value?: ProductModelList | null): any {
         'family_variant': value.familyVariant,
         'parent': value.parent,
         'categories': value.categories,
-        'values': ProductModelListAllOfValuesToJSON(value.values),
+        'values': value.values,
         'associations': ProductModelListAllOfAssociationsToJSON(value.associations),
         'quantified_associations': ProductModelListAllOfQuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,

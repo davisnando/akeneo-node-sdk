@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GetReferenceEntitiesCode200ResponseLabels } from './GetReferenceEntitiesCode200ResponseLabels';
-import {
-    GetReferenceEntitiesCode200ResponseLabelsFromJSON,
-    GetReferenceEntitiesCode200ResponseLabelsFromJSONTyped,
-    GetReferenceEntitiesCode200ResponseLabelsToJSON,
-} from './GetReferenceEntitiesCode200ResponseLabels';
 import type { GetReferenceEntitiesCode200ResponseLinks } from './GetReferenceEntitiesCode200ResponseLinks';
 import {
     GetReferenceEntitiesCode200ResponseLinksFromJSON,
     GetReferenceEntitiesCode200ResponseLinksFromJSONTyped,
     GetReferenceEntitiesCode200ResponseLinksToJSON,
 } from './GetReferenceEntitiesCode200ResponseLinks';
+import type { ReferenceEntitiesEmbeddedItemsInnerAllOf1Labels } from './ReferenceEntitiesEmbeddedItemsInnerAllOf1Labels';
+import {
+    ReferenceEntitiesEmbeddedItemsInnerAllOf1LabelsFromJSON,
+    ReferenceEntitiesEmbeddedItemsInnerAllOf1LabelsFromJSONTyped,
+    ReferenceEntitiesEmbeddedItemsInnerAllOf1LabelsToJSON,
+} from './ReferenceEntitiesEmbeddedItemsInnerAllOf1Labels';
 
 /**
  * 
@@ -52,10 +52,10 @@ export interface GetReferenceEntitiesCode200Response {
     image?: string;
     /**
      * 
-     * @type {GetReferenceEntitiesCode200ResponseLabels}
+     * @type {ReferenceEntitiesEmbeddedItemsInnerAllOf1Labels}
      * @memberof GetReferenceEntitiesCode200Response
      */
-    labels?: GetReferenceEntitiesCode200ResponseLabels;
+    labels?: ReferenceEntitiesEmbeddedItemsInnerAllOf1Labels;
 }
 
 /**
@@ -81,7 +81,7 @@ export function GetReferenceEntitiesCode200ResponseFromJSONTyped(json: any, igno
         'links': !exists(json, '_links') ? undefined : GetReferenceEntitiesCode200ResponseLinksFromJSON(json['_links']),
         'code': json['code'],
         'image': !exists(json, 'image') ? undefined : json['image'],
-        'labels': !exists(json, 'labels') ? undefined : GetReferenceEntitiesCode200ResponseLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : ReferenceEntitiesEmbeddedItemsInnerAllOf1LabelsFromJSON(json['labels']),
     };
 }
 
@@ -97,7 +97,7 @@ export function GetReferenceEntitiesCode200ResponseToJSON(value?: GetReferenceEn
         '_links': GetReferenceEntitiesCode200ResponseLinksToJSON(value.links),
         'code': value.code,
         'image': value.image,
-        'labels': GetReferenceEntitiesCode200ResponseLabelsToJSON(value.labels),
+        'labels': ReferenceEntitiesEmbeddedItemsInnerAllOf1LabelsToJSON(value.labels),
     };
 }
 

@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ProductUuidsEmbedded } from './ProductUuidsEmbedded';
+import {
+    ProductUuidsEmbeddedFromJSON,
+    ProductUuidsEmbeddedFromJSONTyped,
+    ProductUuidsEmbeddedToJSON,
+} from './ProductUuidsEmbedded';
 import type { ReferenceEntitiesLinks } from './ReferenceEntitiesLinks';
 import {
     ReferenceEntitiesLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface ProductUuids
  */
 export interface ProductUuids {
+    /**
+     * 
+     * @type {ProductUuidsEmbedded}
+     * @memberof ProductUuids
+     */
+    embedded?: ProductUuidsEmbedded;
     /**
      * 
      * @type {ReferenceEntitiesLinks}
@@ -53,6 +65,7 @@ export function ProductUuidsFromJSONTyped(json: any, ignoreDiscriminator: boolea
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : ProductUuidsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ReferenceEntitiesLinksFromJSON(json['_links']),
     };
 }
@@ -66,6 +79,7 @@ export function ProductUuidsToJSON(value?: ProductUuids | null): any {
     }
     return {
         
+        '_embedded': ProductUuidsEmbeddedToJSON(value.embedded),
         '_links': ReferenceEntitiesLinksToJSON(value.links),
     };
 }

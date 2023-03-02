@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { MediaFilesEmbedded } from './MediaFilesEmbedded';
+import {
+    MediaFilesEmbeddedFromJSON,
+    MediaFilesEmbeddedFromJSONTyped,
+    MediaFilesEmbeddedToJSON,
+} from './MediaFilesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface MediaFiles
  */
 export interface MediaFiles {
+    /**
+     * 
+     * @type {MediaFilesEmbedded}
+     * @memberof MediaFiles
+     */
+    embedded?: MediaFilesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function MediaFilesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : MediaFilesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function MediaFilesToJSON(value?: MediaFiles | null): any {
     }
     return {
         
+        '_embedded': MediaFilesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

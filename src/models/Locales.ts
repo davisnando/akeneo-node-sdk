@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { LocalesEmbedded } from './LocalesEmbedded';
+import {
+    LocalesEmbeddedFromJSON,
+    LocalesEmbeddedFromJSONTyped,
+    LocalesEmbeddedToJSON,
+} from './LocalesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Locales
  */
 export interface Locales {
+    /**
+     * 
+     * @type {LocalesEmbedded}
+     * @memberof Locales
+     */
+    embedded?: LocalesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function LocalesFromJSONTyped(json: any, ignoreDiscriminator: boolean): L
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : LocalesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function LocalesToJSON(value?: Locales | null): any {
     }
     return {
         
+        '_embedded': LocalesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

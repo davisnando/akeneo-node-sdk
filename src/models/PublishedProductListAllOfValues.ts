@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProductModelListAllOfValuesAttributeCode } from './ProductModelListAllOfValuesAttributeCode';
+import type { ProductModelListAllOfValuesAdditionalProperties } from './ProductModelListAllOfValuesAdditionalProperties';
 import {
-    ProductModelListAllOfValuesAttributeCodeFromJSON,
-    ProductModelListAllOfValuesAttributeCodeFromJSONTyped,
-    ProductModelListAllOfValuesAttributeCodeToJSON,
-} from './ProductModelListAllOfValuesAttributeCode';
+    ProductModelListAllOfValuesAdditionalPropertiesFromJSON,
+    ProductModelListAllOfValuesAdditionalPropertiesFromJSONTyped,
+    ProductModelListAllOfValuesAdditionalPropertiesToJSON,
+} from './ProductModelListAllOfValuesAdditionalProperties';
 
 /**
  * Published product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
@@ -28,10 +28,10 @@ import {
 export interface PublishedProductListAllOfValues {
     /**
      * 
-     * @type {Array<ProductModelListAllOfValuesAttributeCode>}
+     * @type {Array<ProductModelListAllOfValuesAdditionalProperties>}
      * @memberof PublishedProductListAllOfValues
      */
-    attributeCode?: Array<ProductModelListAllOfValuesAttributeCode>;
+    additionalProperties?: Array<ProductModelListAllOfValuesAdditionalProperties>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PublishedProductListAllOfValuesFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'attributeCode': !exists(json, 'attributeCode') ? undefined : ((json['attributeCode'] as Array<any>).map(ProductModelListAllOfValuesAttributeCodeFromJSON)),
+        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : ((json['additionalProperties'] as Array<any>).map(ProductModelListAllOfValuesAdditionalPropertiesFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function PublishedProductListAllOfValuesToJSON(value?: PublishedProductLi
     }
     return {
         
-        'attributeCode': value.attributeCode === undefined ? undefined : ((value.attributeCode as Array<any>).map(ProductModelListAllOfValuesAttributeCodeToJSON)),
+        'additionalProperties': value.additionalProperties === undefined ? undefined : ((value.additionalProperties as Array<any>).map(ProductModelListAllOfValuesAdditionalPropertiesToJSON)),
     };
 }
 

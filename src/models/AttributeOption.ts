@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAttributesAttributeCodeOptionsRequestLabels } from './PostAttributesAttributeCodeOptionsRequestLabels';
+import type { AttributeOptionsEmbeddedItemsInnerAllOfLabels } from './AttributeOptionsEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAttributesAttributeCodeOptionsRequestLabelsFromJSON,
-    PostAttributesAttributeCodeOptionsRequestLabelsFromJSONTyped,
-    PostAttributesAttributeCodeOptionsRequestLabelsToJSON,
-} from './PostAttributesAttributeCodeOptionsRequestLabels';
+    AttributeOptionsEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributeOptionsEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributeOptionsEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributeOptionsEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -46,10 +46,10 @@ export interface AttributeOption {
     sortOrder?: number;
     /**
      * 
-     * @type {PostAttributesAttributeCodeOptionsRequestLabels}
+     * @type {AttributeOptionsEmbeddedItemsInnerAllOfLabels}
      * @memberof AttributeOption
      */
-    labels?: PostAttributesAttributeCodeOptionsRequestLabels;
+    labels?: AttributeOptionsEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -75,7 +75,7 @@ export function AttributeOptionFromJSONTyped(json: any, ignoreDiscriminator: boo
         'code': json['code'],
         'attribute': !exists(json, 'attribute') ? undefined : json['attribute'],
         'sortOrder': !exists(json, 'sort_order') ? undefined : json['sort_order'],
-        'labels': !exists(json, 'labels') ? undefined : PostAttributesAttributeCodeOptionsRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributeOptionsEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -91,7 +91,7 @@ export function AttributeOptionToJSON(value?: AttributeOption | null): any {
         'code': value.code,
         'attribute': value.attribute,
         'sort_order': value.sortOrder,
-        'labels': PostAttributesAttributeCodeOptionsRequestLabelsToJSON(value.labels),
+        'labels': AttributeOptionsEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

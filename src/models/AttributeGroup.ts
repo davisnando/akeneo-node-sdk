@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AttributeGroupsPostRequestLabels } from './AttributeGroupsPostRequestLabels';
+import type { AttributeGroupsEmbeddedItemsInnerAllOfLabels } from './AttributeGroupsEmbeddedItemsInnerAllOfLabels';
 import {
-    AttributeGroupsPostRequestLabelsFromJSON,
-    AttributeGroupsPostRequestLabelsFromJSONTyped,
-    AttributeGroupsPostRequestLabelsToJSON,
-} from './AttributeGroupsPostRequestLabels';
+    AttributeGroupsEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributeGroupsEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributeGroupsEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributeGroupsEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -46,10 +46,10 @@ export interface AttributeGroup {
     attributes?: Array<string>;
     /**
      * 
-     * @type {AttributeGroupsPostRequestLabels}
+     * @type {AttributeGroupsEmbeddedItemsInnerAllOfLabels}
      * @memberof AttributeGroup
      */
-    labels?: AttributeGroupsPostRequestLabels;
+    labels?: AttributeGroupsEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -75,7 +75,7 @@ export function AttributeGroupFromJSONTyped(json: any, ignoreDiscriminator: bool
         'code': json['code'],
         'sortOrder': !exists(json, 'sort_order') ? undefined : json['sort_order'],
         'attributes': !exists(json, 'attributes') ? undefined : json['attributes'],
-        'labels': !exists(json, 'labels') ? undefined : AttributeGroupsPostRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributeGroupsEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -91,7 +91,7 @@ export function AttributeGroupToJSON(value?: AttributeGroup | null): any {
         'code': value.code,
         'sort_order': value.sortOrder,
         'attributes': value.attributes,
-        'labels': AttributeGroupsPostRequestLabelsToJSON(value.labels),
+        'labels': AttributeGroupsEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

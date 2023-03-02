@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssetListAllOfValuesAttributeCode } from './AssetListAllOfValuesAttributeCode';
+import type { AssetListAllOfValuesAdditionalProperties } from './AssetListAllOfValuesAdditionalProperties';
 import {
-    AssetListAllOfValuesAttributeCodeFromJSON,
-    AssetListAllOfValuesAttributeCodeFromJSONTyped,
-    AssetListAllOfValuesAttributeCodeToJSON,
-} from './AssetListAllOfValuesAttributeCode';
+    AssetListAllOfValuesAdditionalPropertiesFromJSON,
+    AssetListAllOfValuesAdditionalPropertiesFromJSONTyped,
+    AssetListAllOfValuesAdditionalPropertiesToJSON,
+} from './AssetListAllOfValuesAdditionalProperties';
 
 /**
  * Asset attributes values, see the <a href='/concepts/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details.
@@ -28,10 +28,10 @@ import {
 export interface AssetListAllOfValues {
     /**
      * 
-     * @type {Array<AssetListAllOfValuesAttributeCode>}
+     * @type {Array<AssetListAllOfValuesAdditionalProperties>}
      * @memberof AssetListAllOfValues
      */
-    attributeCode?: Array<AssetListAllOfValuesAttributeCode>;
+    additionalProperties?: Array<AssetListAllOfValuesAdditionalProperties>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function AssetListAllOfValuesFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'attributeCode': !exists(json, 'attributeCode') ? undefined : ((json['attributeCode'] as Array<any>).map(AssetListAllOfValuesAttributeCodeFromJSON)),
+        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : ((json['additionalProperties'] as Array<any>).map(AssetListAllOfValuesAdditionalPropertiesFromJSON)),
     };
 }
 
@@ -66,7 +66,7 @@ export function AssetListAllOfValuesToJSON(value?: AssetListAllOfValues | null):
     }
     return {
         
-        'attributeCode': value.attributeCode === undefined ? undefined : ((value.attributeCode as Array<any>).map(AssetListAllOfValuesAttributeCodeToJSON)),
+        'additionalProperties': value.additionalProperties === undefined ? undefined : ((value.additionalProperties as Array<any>).map(AssetListAllOfValuesAdditionalPropertiesToJSON)),
     };
 }
 

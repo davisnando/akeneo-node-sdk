@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GetAssetFamilyCode200ResponseLabels } from './GetAssetFamilyCode200ResponseLabels';
+import type { AssetFamiliesEmbeddedItemsInnerAllOfLabels } from './AssetFamiliesEmbeddedItemsInnerAllOfLabels';
 import {
-    GetAssetFamilyCode200ResponseLabelsFromJSON,
-    GetAssetFamilyCode200ResponseLabelsFromJSONTyped,
-    GetAssetFamilyCode200ResponseLabelsToJSON,
-} from './GetAssetFamilyCode200ResponseLabels';
-import type { GetAssetFamilyCode200ResponseNamingConvention } from './GetAssetFamilyCode200ResponseNamingConvention';
+    AssetFamiliesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AssetFamiliesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AssetFamiliesEmbeddedItemsInnerAllOfLabels';
+import type { AssetFamiliesEmbeddedItemsInnerAllOfNamingConvention } from './AssetFamiliesEmbeddedItemsInnerAllOfNamingConvention';
 import {
-    GetAssetFamilyCode200ResponseNamingConventionFromJSON,
-    GetAssetFamilyCode200ResponseNamingConventionFromJSONTyped,
-    GetAssetFamilyCode200ResponseNamingConventionToJSON,
-} from './GetAssetFamilyCode200ResponseNamingConvention';
-import type { GetAssetFamilyCode200ResponseProductLinkRulesInner } from './GetAssetFamilyCode200ResponseProductLinkRulesInner';
+    AssetFamiliesEmbeddedItemsInnerAllOfNamingConventionFromJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfNamingConventionFromJSONTyped,
+    AssetFamiliesEmbeddedItemsInnerAllOfNamingConventionToJSON,
+} from './AssetFamiliesEmbeddedItemsInnerAllOfNamingConvention';
+import type { AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInner } from './AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInner';
 import {
-    GetAssetFamilyCode200ResponseProductLinkRulesInnerFromJSON,
-    GetAssetFamilyCode200ResponseProductLinkRulesInnerFromJSONTyped,
-    GetAssetFamilyCode200ResponseProductLinkRulesInnerToJSON,
-} from './GetAssetFamilyCode200ResponseProductLinkRulesInner';
-import type { GetAssetFamilyCode200ResponseTransformationsInner } from './GetAssetFamilyCode200ResponseTransformationsInner';
+    AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInnerFromJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInnerFromJSONTyped,
+    AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInnerToJSON,
+} from './AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInner';
+import type { AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInner } from './AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInner';
 import {
-    GetAssetFamilyCode200ResponseTransformationsInnerFromJSON,
-    GetAssetFamilyCode200ResponseTransformationsInnerFromJSONTyped,
-    GetAssetFamilyCode200ResponseTransformationsInnerToJSON,
-} from './GetAssetFamilyCode200ResponseTransformationsInner';
+    AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInnerFromJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInnerFromJSONTyped,
+    AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInnerToJSON,
+} from './AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInner';
 
 /**
  * 
@@ -52,10 +52,10 @@ export interface PatchAssetFamilyCodeRequest {
     code: string;
     /**
      * 
-     * @type {GetAssetFamilyCode200ResponseLabels}
+     * @type {AssetFamiliesEmbeddedItemsInnerAllOfLabels}
      * @memberof PatchAssetFamilyCodeRequest
      */
-    labels?: GetAssetFamilyCode200ResponseLabels;
+    labels?: AssetFamiliesEmbeddedItemsInnerAllOfLabels;
     /**
      * Attribute code that is used as the main media of the asset family.
      * @type {string}
@@ -64,22 +64,22 @@ export interface PatchAssetFamilyCodeRequest {
     attributeAsMainMedia?: string;
     /**
      * 
-     * @type {GetAssetFamilyCode200ResponseNamingConvention}
+     * @type {AssetFamiliesEmbeddedItemsInnerAllOfNamingConvention}
      * @memberof PatchAssetFamilyCodeRequest
      */
-    namingConvention?: GetAssetFamilyCode200ResponseNamingConvention;
+    namingConvention?: AssetFamiliesEmbeddedItemsInnerAllOfNamingConvention;
     /**
      * The rules that will be run after the asset creation, in order to automatically link the assets of this family to a set of products. To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-product-link-rule'>here</a>.
-     * @type {Array<GetAssetFamilyCode200ResponseProductLinkRulesInner>}
+     * @type {Array<AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInner>}
      * @memberof PatchAssetFamilyCodeRequest
      */
-    productLinkRules?: Array<GetAssetFamilyCode200ResponseProductLinkRulesInner>;
+    productLinkRules?: Array<AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInner>;
     /**
      * The transformations to perform on source files in order to generate new files into your asset attributes (only available since v4.0). To understand the format of this property, see <a href='/concepts/asset-manager.html#focus-on-the-transformations'>here</a>.
-     * @type {Array<GetAssetFamilyCode200ResponseTransformationsInner>}
+     * @type {Array<AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInner>}
      * @memberof PatchAssetFamilyCodeRequest
      */
-    transformations?: Array<GetAssetFamilyCode200ResponseTransformationsInner>;
+    transformations?: Array<AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInner>;
 }
 
 /**
@@ -103,11 +103,11 @@ export function PatchAssetFamilyCodeRequestFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'code': json['code'],
-        'labels': !exists(json, 'labels') ? undefined : GetAssetFamilyCode200ResponseLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AssetFamiliesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
         'attributeAsMainMedia': !exists(json, 'attribute_as_main_media') ? undefined : json['attribute_as_main_media'],
-        'namingConvention': !exists(json, 'naming_convention') ? undefined : GetAssetFamilyCode200ResponseNamingConventionFromJSON(json['naming_convention']),
-        'productLinkRules': !exists(json, 'product_link_rules') ? undefined : ((json['product_link_rules'] as Array<any>).map(GetAssetFamilyCode200ResponseProductLinkRulesInnerFromJSON)),
-        'transformations': !exists(json, 'transformations') ? undefined : ((json['transformations'] as Array<any>).map(GetAssetFamilyCode200ResponseTransformationsInnerFromJSON)),
+        'namingConvention': !exists(json, 'naming_convention') ? undefined : AssetFamiliesEmbeddedItemsInnerAllOfNamingConventionFromJSON(json['naming_convention']),
+        'productLinkRules': !exists(json, 'product_link_rules') ? undefined : ((json['product_link_rules'] as Array<any>).map(AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInnerFromJSON)),
+        'transformations': !exists(json, 'transformations') ? undefined : ((json['transformations'] as Array<any>).map(AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInnerFromJSON)),
     };
 }
 
@@ -121,11 +121,11 @@ export function PatchAssetFamilyCodeRequestToJSON(value?: PatchAssetFamilyCodeRe
     return {
         
         'code': value.code,
-        'labels': GetAssetFamilyCode200ResponseLabelsToJSON(value.labels),
+        'labels': AssetFamiliesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
         'attribute_as_main_media': value.attributeAsMainMedia,
-        'naming_convention': GetAssetFamilyCode200ResponseNamingConventionToJSON(value.namingConvention),
-        'product_link_rules': value.productLinkRules === undefined ? undefined : ((value.productLinkRules as Array<any>).map(GetAssetFamilyCode200ResponseProductLinkRulesInnerToJSON)),
-        'transformations': value.transformations === undefined ? undefined : ((value.transformations as Array<any>).map(GetAssetFamilyCode200ResponseTransformationsInnerToJSON)),
+        'naming_convention': AssetFamiliesEmbeddedItemsInnerAllOfNamingConventionToJSON(value.namingConvention),
+        'product_link_rules': value.productLinkRules === undefined ? undefined : ((value.productLinkRules as Array<any>).map(AssetFamiliesEmbeddedItemsInnerAllOfProductLinkRulesInnerToJSON)),
+        'transformations': value.transformations === undefined ? undefined : ((value.transformations as Array<any>).map(AssetFamiliesEmbeddedItemsInnerAllOfTransformationsInnerToJSON)),
     };
 }
 

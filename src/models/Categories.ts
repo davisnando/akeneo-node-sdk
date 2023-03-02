@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { CategoriesEmbedded } from './CategoriesEmbedded';
+import {
+    CategoriesEmbeddedFromJSON,
+    CategoriesEmbeddedFromJSONTyped,
+    CategoriesEmbeddedToJSON,
+} from './CategoriesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Categories
  */
 export interface Categories {
+    /**
+     * 
+     * @type {CategoriesEmbedded}
+     * @memberof Categories
+     */
+    embedded?: CategoriesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function CategoriesFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : CategoriesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function CategoriesToJSON(value?: Categories | null): any {
     }
     return {
         
+        '_embedded': CategoriesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

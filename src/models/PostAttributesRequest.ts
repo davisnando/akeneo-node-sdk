@@ -13,24 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAttributesRequestGroupLabels } from './PostAttributesRequestGroupLabels';
+import type { AttributesEmbeddedItemsInnerAllOfGroupLabels } from './AttributesEmbeddedItemsInnerAllOfGroupLabels';
 import {
-    PostAttributesRequestGroupLabelsFromJSON,
-    PostAttributesRequestGroupLabelsFromJSONTyped,
-    PostAttributesRequestGroupLabelsToJSON,
-} from './PostAttributesRequestGroupLabels';
-import type { PostAttributesRequestLabels } from './PostAttributesRequestLabels';
+    AttributesEmbeddedItemsInnerAllOfGroupLabelsFromJSON,
+    AttributesEmbeddedItemsInnerAllOfGroupLabelsFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfGroupLabelsToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfGroupLabels';
+import type { AttributesEmbeddedItemsInnerAllOfLabels } from './AttributesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAttributesRequestLabelsFromJSON,
-    PostAttributesRequestLabelsFromJSONTyped,
-    PostAttributesRequestLabelsToJSON,
-} from './PostAttributesRequestLabels';
-import type { PostAttributesRequestTableConfigurationInner } from './PostAttributesRequestTableConfigurationInner';
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfLabels';
+import type { AttributesEmbeddedItemsInnerAllOfTableConfigurationInner } from './AttributesEmbeddedItemsInnerAllOfTableConfigurationInner';
 import {
-    PostAttributesRequestTableConfigurationInnerFromJSON,
-    PostAttributesRequestTableConfigurationInnerFromJSONTyped,
-    PostAttributesRequestTableConfigurationInnerToJSON,
-} from './PostAttributesRequestTableConfigurationInner';
+    AttributesEmbeddedItemsInnerAllOfTableConfigurationInnerFromJSON,
+    AttributesEmbeddedItemsInnerAllOfTableConfigurationInnerFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfTableConfigurationInnerToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfTableConfigurationInner';
 
 /**
  * 
@@ -52,10 +52,10 @@ export interface PostAttributesRequest {
     type: PostAttributesRequestTypeEnum;
     /**
      * 
-     * @type {PostAttributesRequestLabels}
+     * @type {AttributesEmbeddedItemsInnerAllOfLabels}
      * @memberof PostAttributesRequest
      */
-    labels?: PostAttributesRequestLabels;
+    labels?: AttributesEmbeddedItemsInnerAllOfLabels;
     /**
      * Attribute group
      * @type {string}
@@ -64,10 +64,10 @@ export interface PostAttributesRequest {
     group: string;
     /**
      * 
-     * @type {PostAttributesRequestGroupLabels}
+     * @type {AttributesEmbeddedItemsInnerAllOfGroupLabels}
      * @memberof PostAttributesRequest
      */
-    groupLabels?: PostAttributesRequestGroupLabels;
+    groupLabels?: AttributesEmbeddedItemsInnerAllOfGroupLabels;
     /**
      * Order of the attribute in its group
      * @type {number}
@@ -202,10 +202,10 @@ export interface PostAttributesRequest {
     defaultValue?: boolean;
     /**
      * Configuration of the Table attribute (columns)
-     * @type {Array<PostAttributesRequestTableConfigurationInner>}
+     * @type {Array<AttributesEmbeddedItemsInnerAllOfTableConfigurationInner>}
      * @memberof PostAttributesRequest
      */
-    tableConfiguration?: Array<PostAttributesRequestTableConfigurationInner>;
+    tableConfiguration?: Array<AttributesEmbeddedItemsInnerAllOfTableConfigurationInner>;
 }
 
 
@@ -258,9 +258,9 @@ export function PostAttributesRequestFromJSONTyped(json: any, ignoreDiscriminato
         
         'code': json['code'],
         'type': json['type'],
-        'labels': !exists(json, 'labels') ? undefined : PostAttributesRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
         'group': json['group'],
-        'groupLabels': !exists(json, 'group_labels') ? undefined : PostAttributesRequestGroupLabelsFromJSON(json['group_labels']),
+        'groupLabels': !exists(json, 'group_labels') ? undefined : AttributesEmbeddedItemsInnerAllOfGroupLabelsFromJSON(json['group_labels']),
         'sortOrder': !exists(json, 'sort_order') ? undefined : json['sort_order'],
         'localizable': !exists(json, 'localizable') ? undefined : json['localizable'],
         'scopable': !exists(json, 'scopable') ? undefined : json['scopable'],
@@ -283,7 +283,7 @@ export function PostAttributesRequestFromJSONTyped(json: any, ignoreDiscriminato
         'maxFileSize': !exists(json, 'max_file_size') ? undefined : json['max_file_size'],
         'referenceDataName': !exists(json, 'reference_data_name') ? undefined : json['reference_data_name'],
         'defaultValue': !exists(json, 'default_value') ? undefined : json['default_value'],
-        'tableConfiguration': !exists(json, 'table_configuration') ? undefined : ((json['table_configuration'] as Array<any>).map(PostAttributesRequestTableConfigurationInnerFromJSON)),
+        'tableConfiguration': !exists(json, 'table_configuration') ? undefined : ((json['table_configuration'] as Array<any>).map(AttributesEmbeddedItemsInnerAllOfTableConfigurationInnerFromJSON)),
     };
 }
 
@@ -298,9 +298,9 @@ export function PostAttributesRequestToJSON(value?: PostAttributesRequest | null
         
         'code': value.code,
         'type': value.type,
-        'labels': PostAttributesRequestLabelsToJSON(value.labels),
+        'labels': AttributesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
         'group': value.group,
-        'group_labels': PostAttributesRequestGroupLabelsToJSON(value.groupLabels),
+        'group_labels': AttributesEmbeddedItemsInnerAllOfGroupLabelsToJSON(value.groupLabels),
         'sort_order': value.sortOrder,
         'localizable': value.localizable,
         'scopable': value.scopable,
@@ -323,7 +323,7 @@ export function PostAttributesRequestToJSON(value?: PostAttributesRequest | null
         'max_file_size': value.maxFileSize,
         'reference_data_name': value.referenceDataName,
         'default_value': value.defaultValue,
-        'table_configuration': value.tableConfiguration === undefined ? undefined : ((value.tableConfiguration as Array<any>).map(PostAttributesRequestTableConfigurationInnerToJSON)),
+        'table_configuration': value.tableConfiguration === undefined ? undefined : ((value.tableConfiguration as Array<any>).map(AttributesEmbeddedItemsInnerAllOfTableConfigurationInnerToJSON)),
     };
 }
 

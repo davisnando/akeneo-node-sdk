@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAttributesRequestLabels } from './PostAttributesRequestLabels';
+import type { AttributesEmbeddedItemsInnerAllOfLabels } from './AttributesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAttributesRequestLabelsFromJSON,
-    PostAttributesRequestLabelsFromJSONTyped,
-    PostAttributesRequestLabelsToJSON,
-} from './PostAttributesRequestLabels';
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -34,10 +34,10 @@ export interface ReferenceEntityAttributeOption {
     code: string;
     /**
      * 
-     * @type {PostAttributesRequestLabels}
+     * @type {AttributesEmbeddedItemsInnerAllOfLabels}
      * @memberof ReferenceEntityAttributeOption
      */
-    labels?: PostAttributesRequestLabels;
+    labels?: AttributesEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -61,7 +61,7 @@ export function ReferenceEntityAttributeOptionFromJSONTyped(json: any, ignoreDis
     return {
         
         'code': json['code'],
-        'labels': !exists(json, 'labels') ? undefined : PostAttributesRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -75,7 +75,7 @@ export function ReferenceEntityAttributeOptionToJSON(value?: ReferenceEntityAttr
     return {
         
         'code': value.code,
-        'labels': PostAttributesRequestLabelsToJSON(value.labels),
+        'labels': AttributesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

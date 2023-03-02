@@ -16,16 +16,16 @@
 import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
-  GetPublishedProductsCode200Response,
   PublishedProducts,
+  PublishedProductsEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
-    GetPublishedProductsCode200ResponseFromJSON,
-    GetPublishedProductsCode200ResponseToJSON,
     PublishedProductsFromJSON,
     PublishedProductsToJSON,
+    PublishedProductsEmbeddedItemsInnerAllOfFromJSON,
+    PublishedProductsEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface GetPublishedProductsRequest {
@@ -117,7 +117,7 @@ export class PublishedProductApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given published product.
      * Get a published product
      */
-    async getPublishedProductsCodeRaw(requestParameters: GetPublishedProductsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublishedProductsCode200Response>> {
+    async getPublishedProductsCodeRaw(requestParameters: GetPublishedProductsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PublishedProductsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getPublishedProductsCode.');
         }
@@ -133,14 +133,14 @@ export class PublishedProductApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetPublishedProductsCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PublishedProductsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given published product.
      * Get a published product
      */
-    async getPublishedProductsCode(requestParameters: GetPublishedProductsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPublishedProductsCode200Response> {
+    async getPublishedProductsCode(requestParameters: GetPublishedProductsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PublishedProductsEmbeddedItemsInnerAllOf> {
         const response = await this.getPublishedProductsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

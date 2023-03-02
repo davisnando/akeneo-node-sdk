@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ChannelsEmbedded } from './ChannelsEmbedded';
+import {
+    ChannelsEmbeddedFromJSON,
+    ChannelsEmbeddedFromJSONTyped,
+    ChannelsEmbeddedToJSON,
+} from './ChannelsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Channels
  */
 export interface Channels {
+    /**
+     * 
+     * @type {ChannelsEmbedded}
+     * @memberof Channels
+     */
+    embedded?: ChannelsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function ChannelsFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : ChannelsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function ChannelsToJSON(value?: Channels | null): any {
     }
     return {
         
+        '_embedded': ChannelsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

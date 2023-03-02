@@ -16,22 +16,22 @@
 import * as runtime from '../runtime';
 import type {
   FamilyVariants,
+  FamilyVariantsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchFamiliesFamilyCodeVariantsRequest,
   PatchProducts200Response,
-  PostFamiliesFamilyCodeVariantsRequest,
 } from '../models';
 import {
     FamilyVariantsFromJSON,
     FamilyVariantsToJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfFromJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchFamiliesFamilyCodeVariantsRequestFromJSON,
     PatchFamiliesFamilyCodeVariantsRequestToJSON,
     PatchProducts200ResponseFromJSON,
     PatchProducts200ResponseToJSON,
-    PostFamiliesFamilyCodeVariantsRequestFromJSON,
-    PostFamiliesFamilyCodeVariantsRequestToJSON,
 } from '../models';
 
 export interface GetFamiliesFamilyCodeVariantsRequest {
@@ -54,7 +54,7 @@ export interface PatchFamiliesFamilyCodeVariantsOperationRequest {
 export interface PatchFamiliesFamilyCodeVariantsCodeRequest {
     familyCode: string;
     code: string;
-    body: PostFamiliesFamilyCodeVariantsRequest;
+    body: FamilyVariantsEmbeddedItemsInnerAllOf;
 }
 
 /**
@@ -110,7 +110,7 @@ export class FamilyVariantApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given family variant.
      * Get a family variant
      */
-    async getFamiliesFamilyCodeVariantsCodeRaw(requestParameters: GetFamiliesFamilyCodeVariantsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFamiliesFamilyCodeVariantsRequest>> {
+    async getFamiliesFamilyCodeVariantsCodeRaw(requestParameters: GetFamiliesFamilyCodeVariantsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FamilyVariantsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.familyCode === null || requestParameters.familyCode === undefined) {
             throw new runtime.RequiredError('familyCode','Required parameter requestParameters.familyCode was null or undefined when calling getFamiliesFamilyCodeVariantsCode.');
         }
@@ -130,14 +130,14 @@ export class FamilyVariantApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostFamiliesFamilyCodeVariantsRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FamilyVariantsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given family variant.
      * Get a family variant
      */
-    async getFamiliesFamilyCodeVariantsCode(requestParameters: GetFamiliesFamilyCodeVariantsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFamiliesFamilyCodeVariantsRequest> {
+    async getFamiliesFamilyCodeVariantsCode(requestParameters: GetFamiliesFamilyCodeVariantsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FamilyVariantsEmbeddedItemsInnerAllOf> {
         const response = await this.getFamiliesFamilyCodeVariantsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -205,7 +205,7 @@ export class FamilyVariantApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFamiliesFamilyCodeVariantsRequestToJSON(requestParameters.body),
+            body: FamilyVariantsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

@@ -1,8 +1,6 @@
 ## @labdigital/akeneo-node-sdk@1.0.0
 
-This generator creates TypeScript/JavaScript client that utilizes [Fetch
-API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the
-following environments:
+This generator creates TypeScript/JavaScript client that utilizes [Fetch API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the following environments:
 
 Environment
 * Node.js
@@ -17,24 +15,15 @@ Module system
 * CommonJS
 * ES6 module system
 
-It can be used in both TypeScript and JavaScript. In TypeScript, the definition should
-be automatically resolved via `package.json`.
-([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
+It can be used in both TypeScript and JavaScript. In TypeScript, the definition should be automatically resolved via `package.json`. ([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
 
 ### Building
 
 To build and compile the typescript sources to javascript use:
 ```
-make fetch
-make generate
+npm install
+npm run build
 ```
-
-__Note__ that there are currently some typos/bugs in the OpenAPI documentation. Replace
-all occurrences of the following after generating and before publishing.
-
-- "Content-type" with "Content-Type" 
-- `"properties": { "_embedded": {` with `"type": "object", "properties": { "_embedded":
-  {`
 
 ### Publishing
 

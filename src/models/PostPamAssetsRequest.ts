@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostPamAssetsRequestReferenceFilesInner } from './PostPamAssetsRequestReferenceFilesInner';
+import type { PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInner } from './PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInner';
 import {
-    PostPamAssetsRequestReferenceFilesInnerFromJSON,
-    PostPamAssetsRequestReferenceFilesInnerFromJSONTyped,
-    PostPamAssetsRequestReferenceFilesInnerToJSON,
-} from './PostPamAssetsRequestReferenceFilesInner';
-import type { PostPamAssetsRequestVariationFilesInner } from './PostPamAssetsRequestVariationFilesInner';
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerFromJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerFromJSONTyped,
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerToJSON,
+} from './PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInner';
+import type { PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInner } from './PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInner';
 import {
-    PostPamAssetsRequestVariationFilesInnerFromJSON,
-    PostPamAssetsRequestVariationFilesInnerFromJSONTyped,
-    PostPamAssetsRequestVariationFilesInnerToJSON,
-} from './PostPamAssetsRequestVariationFilesInner';
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerFromJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerFromJSONTyped,
+    PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerToJSON,
+} from './PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInner';
 
 /**
  * 
@@ -70,16 +70,16 @@ export interface PostPamAssetsRequest {
     endOfUse?: string;
     /**
      * Variations of the PAM asset
-     * @type {Array<PostPamAssetsRequestVariationFilesInner>}
+     * @type {Array<PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInner>}
      * @memberof PostPamAssetsRequest
      */
-    variationFiles?: Array<PostPamAssetsRequestVariationFilesInner>;
+    variationFiles?: Array<PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInner>;
     /**
      * Reference files of the PAM asset
-     * @type {Array<PostPamAssetsRequestReferenceFilesInner>}
+     * @type {Array<PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInner>}
      * @memberof PostPamAssetsRequest
      */
-    referenceFiles?: Array<PostPamAssetsRequestReferenceFilesInner>;
+    referenceFiles?: Array<PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInner>;
 }
 
 /**
@@ -108,8 +108,8 @@ export function PostPamAssetsRequestFromJSONTyped(json: any, ignoreDiscriminator
         'localizable': !exists(json, 'localizable') ? undefined : json['localizable'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'endOfUse': !exists(json, 'end_of_use') ? undefined : json['end_of_use'],
-        'variationFiles': !exists(json, 'variation_files') ? undefined : ((json['variation_files'] as Array<any>).map(PostPamAssetsRequestVariationFilesInnerFromJSON)),
-        'referenceFiles': !exists(json, 'reference_files') ? undefined : ((json['reference_files'] as Array<any>).map(PostPamAssetsRequestReferenceFilesInnerFromJSON)),
+        'variationFiles': !exists(json, 'variation_files') ? undefined : ((json['variation_files'] as Array<any>).map(PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerFromJSON)),
+        'referenceFiles': !exists(json, 'reference_files') ? undefined : ((json['reference_files'] as Array<any>).map(PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerFromJSON)),
     };
 }
 
@@ -128,8 +128,8 @@ export function PostPamAssetsRequestToJSON(value?: PostPamAssetsRequest | null):
         'localizable': value.localizable,
         'tags': value.tags,
         'end_of_use': value.endOfUse,
-        'variation_files': value.variationFiles === undefined ? undefined : ((value.variationFiles as Array<any>).map(PostPamAssetsRequestVariationFilesInnerToJSON)),
-        'reference_files': value.referenceFiles === undefined ? undefined : ((value.referenceFiles as Array<any>).map(PostPamAssetsRequestReferenceFilesInnerToJSON)),
+        'variation_files': value.variationFiles === undefined ? undefined : ((value.variationFiles as Array<any>).map(PAMAssetsEmbeddedItemsInnerAllOfVariationFilesInnerToJSON)),
+        'reference_files': value.referenceFiles === undefined ? undefined : ((value.referenceFiles as Array<any>).map(PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerToJSON)),
     };
 }
 

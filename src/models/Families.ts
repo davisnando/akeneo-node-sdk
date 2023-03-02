@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { FamiliesEmbedded } from './FamiliesEmbedded';
+import {
+    FamiliesEmbeddedFromJSON,
+    FamiliesEmbeddedFromJSONTyped,
+    FamiliesEmbeddedToJSON,
+} from './FamiliesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Families
  */
 export interface Families {
+    /**
+     * 
+     * @type {FamiliesEmbedded}
+     * @memberof Families
+     */
+    embedded?: FamiliesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function FamiliesFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : FamiliesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function FamiliesToJSON(value?: Families | null): any {
     }
     return {
         
+        '_embedded': FamiliesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

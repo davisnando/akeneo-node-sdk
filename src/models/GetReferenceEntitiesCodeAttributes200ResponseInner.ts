@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAttributesRequestLabels } from './PostAttributesRequestLabels';
+import type { AttributesEmbeddedItemsInnerAllOfLabels } from './AttributesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAttributesRequestLabelsFromJSON,
-    PostAttributesRequestLabelsFromJSONTyped,
-    PostAttributesRequestLabelsToJSON,
-} from './PostAttributesRequestLabels';
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    AttributesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    AttributesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './AttributesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -34,10 +34,10 @@ export interface GetReferenceEntitiesCodeAttributes200ResponseInner {
     code: string;
     /**
      * 
-     * @type {PostAttributesRequestLabels}
+     * @type {AttributesEmbeddedItemsInnerAllOfLabels}
      * @memberof GetReferenceEntitiesCodeAttributes200ResponseInner
      */
-    labels?: PostAttributesRequestLabels;
+    labels?: AttributesEmbeddedItemsInnerAllOfLabels;
     /**
      * Attribute type. See <a href='/concepts/reference-entities.html#reference-entity-attribute'>type</a> section for more details.
      * @type {string}
@@ -179,7 +179,7 @@ export function GetReferenceEntitiesCodeAttributes200ResponseInnerFromJSONTyped(
     return {
         
         'code': json['code'],
-        'labels': !exists(json, 'labels') ? undefined : PostAttributesRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : AttributesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
         'type': json['type'],
         'valuePerLocale': !exists(json, 'value_per_locale') ? undefined : json['value_per_locale'],
         'valuePerChannel': !exists(json, 'value_per_channel') ? undefined : json['value_per_channel'],
@@ -208,7 +208,7 @@ export function GetReferenceEntitiesCodeAttributes200ResponseInnerToJSON(value?:
     return {
         
         'code': value.code,
-        'labels': PostAttributesRequestLabelsToJSON(value.labels),
+        'labels': AttributesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
         'type': value.type,
         'value_per_locale': value.valuePerLocale,
         'value_per_channel': value.valuePerChannel,

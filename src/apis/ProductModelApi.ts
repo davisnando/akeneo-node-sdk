@@ -15,16 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetProductModelsCode200Response,
   GetProducts401Response,
   PatchProductModelsRequest,
   PatchProducts200Response,
   PostProductModelsRequest,
   ProductModels,
+  ProductModelsEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
-    GetProductModelsCode200ResponseFromJSON,
-    GetProductModelsCode200ResponseToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchProductModelsRequestFromJSON,
@@ -35,6 +33,8 @@ import {
     PostProductModelsRequestToJSON,
     ProductModelsFromJSON,
     ProductModelsToJSON,
+    ProductModelsEmbeddedItemsInnerAllOfFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface DeleteProductModelsCodeRequest {
@@ -120,7 +120,7 @@ export class ProductModelApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given product model draft.
      * Get a draft
      */
-    async getProductModelDraftCodeRaw(requestParameters: GetProductModelDraftCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetProductModelsCode200Response>> {
+    async getProductModelDraftCodeRaw(requestParameters: GetProductModelDraftCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductModelsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getProductModelDraftCode.');
         }
@@ -136,14 +136,14 @@ export class ProductModelApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetProductModelsCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductModelsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given product model draft.
      * Get a draft
      */
-    async getProductModelDraftCode(requestParameters: GetProductModelDraftCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetProductModelsCode200Response> {
+    async getProductModelDraftCode(requestParameters: GetProductModelDraftCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductModelsEmbeddedItemsInnerAllOf> {
         const response = await this.getProductModelDraftCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -220,7 +220,7 @@ export class ProductModelApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given product model. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product model you request.
      * Get a product model
      */
-    async getProductModelsCodeRaw(requestParameters: GetProductModelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetProductModelsCode200Response>> {
+    async getProductModelsCodeRaw(requestParameters: GetProductModelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProductModelsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getProductModelsCode.');
         }
@@ -240,14 +240,14 @@ export class ProductModelApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetProductModelsCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductModelsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given product model. In the Entreprise Edition, since the v2.0, permissions based on your user groups are applied to the product model you request.
      * Get a product model
      */
-    async getProductModelsCode(requestParameters: GetProductModelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetProductModelsCode200Response> {
+    async getProductModelsCode(requestParameters: GetProductModelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProductModelsEmbeddedItemsInnerAllOf> {
         const response = await this.getProductModelsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

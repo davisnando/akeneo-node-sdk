@@ -18,8 +18,8 @@ import type {
   GetProducts401Response,
   PatchReferenceEntityRecords200ResponseInner,
   PatchReferenceEntityRecordsCodeRequest,
-  PatchReferenceEntityRecordsRequestInner,
   ReferenceEntityRecord,
+  ReferenceEntityRecordEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
@@ -28,10 +28,10 @@ import {
     PatchReferenceEntityRecords200ResponseInnerToJSON,
     PatchReferenceEntityRecordsCodeRequestFromJSON,
     PatchReferenceEntityRecordsCodeRequestToJSON,
-    PatchReferenceEntityRecordsRequestInnerFromJSON,
-    PatchReferenceEntityRecordsRequestInnerToJSON,
     ReferenceEntityRecordFromJSON,
     ReferenceEntityRecordToJSON,
+    ReferenceEntityRecordEmbeddedItemsInnerAllOfFromJSON,
+    ReferenceEntityRecordEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface GetReferenceEntityRecordsRequest {
@@ -49,7 +49,7 @@ export interface GetReferenceEntityRecordsCodeRequest {
 
 export interface PatchReferenceEntityRecordsRequest {
     referenceEntityCode: string;
-    body: Array<PatchReferenceEntityRecordsRequestInner>;
+    body: Array<ReferenceEntityRecordEmbeddedItemsInnerAllOf>;
 }
 
 export interface PatchReferenceEntityRecordsCodeOperationRequest {
@@ -115,7 +115,7 @@ export class ReferenceEntityRecordApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given record for a given reference entity.
      * Get a record of a given reference entity
      */
-    async getReferenceEntityRecordsCodeRaw(requestParameters: GetReferenceEntityRecordsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PatchReferenceEntityRecordsRequestInner>> {
+    async getReferenceEntityRecordsCodeRaw(requestParameters: GetReferenceEntityRecordsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ReferenceEntityRecordEmbeddedItemsInnerAllOf>> {
         if (requestParameters.referenceEntityCode === null || requestParameters.referenceEntityCode === undefined) {
             throw new runtime.RequiredError('referenceEntityCode','Required parameter requestParameters.referenceEntityCode was null or undefined when calling getReferenceEntityRecordsCode.');
         }
@@ -135,14 +135,14 @@ export class ReferenceEntityRecordApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PatchReferenceEntityRecordsRequestInnerFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReferenceEntityRecordEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given record for a given reference entity.
      * Get a record of a given reference entity
      */
-    async getReferenceEntityRecordsCode(requestParameters: GetReferenceEntityRecordsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PatchReferenceEntityRecordsRequestInner> {
+    async getReferenceEntityRecordsCode(requestParameters: GetReferenceEntityRecordsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ReferenceEntityRecordEmbeddedItemsInnerAllOf> {
         const response = await this.getReferenceEntityRecordsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -171,7 +171,7 @@ export class ReferenceEntityRecordApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.body.map(PatchReferenceEntityRecordsRequestInnerToJSON),
+            body: requestParameters.body.map(ReferenceEntityRecordEmbeddedItemsInnerAllOfToJSON),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PatchReferenceEntityRecords200ResponseInnerFromJSON));

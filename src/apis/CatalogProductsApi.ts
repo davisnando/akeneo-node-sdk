@@ -17,15 +17,15 @@ import * as runtime from '../runtime';
 import type {
   GetProducts401Response,
   ProductUuids,
-  Products1,
+  Products2,
 } from '../models';
 import {
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     ProductUuidsFromJSON,
     ProductUuidsToJSON,
-    Products1FromJSON,
-    Products1ToJSON,
+    Products2FromJSON,
+    Products2ToJSON,
 } from '../models';
 
 export interface GetAppCatalogProductUuidsRequest {
@@ -106,7 +106,7 @@ export class CatalogProductsApi extends runtime.BaseAPI {
      * This endpoint allows you to get the list of products related to a catalog. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your app settings are applied to the set of products you request. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message, for more details see the <a href=\"apps/catalogs.html#troubleshooting\">App Catalog</a> section.
      * Get the list of products related to a catalog
      */
-    async getAppCatalogProductsRaw(requestParameters: GetAppCatalogProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products1>> {
+    async getAppCatalogProductsRaw(requestParameters: GetAppCatalogProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Products2>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling getAppCatalogProducts.');
         }
@@ -138,14 +138,14 @@ export class CatalogProductsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Products1FromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => Products2FromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the list of products related to a catalog. Products are paginated and they can be filtered. In the Enterprise Edition, permissions based on your app settings are applied to the set of products you request. Please, note that a disabled catalog can return an HTTP 200 with a payload containing an error message, for more details see the <a href=\"apps/catalogs.html#troubleshooting\">App Catalog</a> section.
      * Get the list of products related to a catalog
      */
-    async getAppCatalogProducts(requestParameters: GetAppCatalogProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products1> {
+    async getAppCatalogProducts(requestParameters: GetAppCatalogProductsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Products2> {
         const response = await this.getAppCatalogProductsRaw(requestParameters, initOverrides);
         return await response.value();
     }

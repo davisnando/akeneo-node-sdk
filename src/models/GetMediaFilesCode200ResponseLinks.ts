@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GetMediaFilesCode200ResponseLinksDownload } from './GetMediaFilesCode200ResponseLinksDownload';
+import type { MediaFilesEmbeddedItemsInnerAllOfLinksDownload } from './MediaFilesEmbeddedItemsInnerAllOfLinksDownload';
 import {
-    GetMediaFilesCode200ResponseLinksDownloadFromJSON,
-    GetMediaFilesCode200ResponseLinksDownloadFromJSONTyped,
-    GetMediaFilesCode200ResponseLinksDownloadToJSON,
-} from './GetMediaFilesCode200ResponseLinksDownload';
+    MediaFilesEmbeddedItemsInnerAllOfLinksDownloadFromJSON,
+    MediaFilesEmbeddedItemsInnerAllOfLinksDownloadFromJSONTyped,
+    MediaFilesEmbeddedItemsInnerAllOfLinksDownloadToJSON,
+} from './MediaFilesEmbeddedItemsInnerAllOfLinksDownload';
 
 /**
  * 
@@ -28,10 +28,10 @@ import {
 export interface GetMediaFilesCode200ResponseLinks {
     /**
      * 
-     * @type {GetMediaFilesCode200ResponseLinksDownload}
+     * @type {MediaFilesEmbeddedItemsInnerAllOfLinksDownload}
      * @memberof GetMediaFilesCode200ResponseLinks
      */
-    download?: GetMediaFilesCode200ResponseLinksDownload;
+    download?: MediaFilesEmbeddedItemsInnerAllOfLinksDownload;
 }
 
 /**
@@ -53,7 +53,7 @@ export function GetMediaFilesCode200ResponseLinksFromJSONTyped(json: any, ignore
     }
     return {
         
-        'download': !exists(json, 'download') ? undefined : GetMediaFilesCode200ResponseLinksDownloadFromJSON(json['download']),
+        'download': !exists(json, 'download') ? undefined : MediaFilesEmbeddedItemsInnerAllOfLinksDownloadFromJSON(json['download']),
     };
 }
 
@@ -66,7 +66,7 @@ export function GetMediaFilesCode200ResponseLinksToJSON(value?: GetMediaFilesCod
     }
     return {
         
-        'download': GetMediaFilesCode200ResponseLinksDownloadToJSON(value.download),
+        'download': MediaFilesEmbeddedItemsInnerAllOfLinksDownloadToJSON(value.download),
     };
 }
 

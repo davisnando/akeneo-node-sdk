@@ -16,7 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   AssociationTypes,
-  AssociationTypesPostRequest,
+  AssociationTypesEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchProducts200Response,
   SeveralAssociationTypesPatchRequest,
@@ -24,8 +24,8 @@ import type {
 import {
     AssociationTypesFromJSON,
     AssociationTypesToJSON,
-    AssociationTypesPostRequestFromJSON,
-    AssociationTypesPostRequestToJSON,
+    AssociationTypesEmbeddedItemsInnerAllOfFromJSON,
+    AssociationTypesEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchProducts200ResponseFromJSON,
@@ -46,11 +46,11 @@ export interface AssociationTypesGetListRequest {
 
 export interface AssociationTypesPatchRequest {
     code: string;
-    body: AssociationTypesPostRequest;
+    body: AssociationTypesEmbeddedItemsInnerAllOf;
 }
 
-export interface AssociationTypesPostOperationRequest {
-    body?: AssociationTypesPostRequest;
+export interface AssociationTypesPostRequest {
+    body?: AssociationTypesEmbeddedItemsInnerAllOf;
 }
 
 export interface SeveralAssociationTypesPatchOperationRequest {
@@ -66,7 +66,7 @@ export class AssociationTypeApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given association type.
      * Get an association type
      */
-    async associationTypesGetRaw(requestParameters: AssociationTypesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociationTypesPostRequest>> {
+    async associationTypesGetRaw(requestParameters: AssociationTypesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssociationTypesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling associationTypesGet.');
         }
@@ -82,14 +82,14 @@ export class AssociationTypeApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AssociationTypesPostRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AssociationTypesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given association type.
      * Get an association type
      */
-    async associationTypesGet(requestParameters: AssociationTypesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociationTypesPostRequest> {
+    async associationTypesGet(requestParameters: AssociationTypesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssociationTypesEmbeddedItemsInnerAllOf> {
         const response = await this.associationTypesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -158,7 +158,7 @@ export class AssociationTypeApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: AssociationTypesPostRequestToJSON(requestParameters.body),
+            body: AssociationTypesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -176,7 +176,7 @@ export class AssociationTypeApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new association type.
      * Create a new association type
      */
-    async associationTypesPostRaw(requestParameters: AssociationTypesPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async associationTypesPostRaw(requestParameters: AssociationTypesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -188,7 +188,7 @@ export class AssociationTypeApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: AssociationTypesPostRequestToJSON(requestParameters.body),
+            body: AssociationTypesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -198,7 +198,7 @@ export class AssociationTypeApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new association type.
      * Create a new association type
      */
-    async associationTypesPost(requestParameters: AssociationTypesPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async associationTypesPost(requestParameters: AssociationTypesPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.associationTypesPostRaw(requestParameters, initOverrides);
     }
 

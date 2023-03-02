@@ -16,25 +16,25 @@
 import * as runtime from '../runtime';
 import type {
   Families,
+  FamiliesEmbeddedItemsInnerAllOf,
+  FamilyVariantsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchFamiliesRequest,
   PatchProducts200Response,
-  PostFamiliesFamilyCodeVariantsRequest,
-  PostFamiliesRequest,
 } from '../models';
 import {
     FamiliesFromJSON,
     FamiliesToJSON,
+    FamiliesEmbeddedItemsInnerAllOfFromJSON,
+    FamiliesEmbeddedItemsInnerAllOfToJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfFromJSON,
+    FamilyVariantsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchFamiliesRequestFromJSON,
     PatchFamiliesRequestToJSON,
     PatchProducts200ResponseFromJSON,
     PatchProducts200ResponseToJSON,
-    PostFamiliesFamilyCodeVariantsRequestFromJSON,
-    PostFamiliesFamilyCodeVariantsRequestToJSON,
-    PostFamiliesRequestFromJSON,
-    PostFamiliesRequestToJSON,
 } from '../models';
 
 export interface GetFamiliesRequest {
@@ -54,16 +54,16 @@ export interface PatchFamiliesOperationRequest {
 
 export interface PatchFamiliesCodeRequest {
     code: string;
-    body: PostFamiliesRequest;
+    body: FamiliesEmbeddedItemsInnerAllOf;
 }
 
-export interface PostFamiliesOperationRequest {
-    body?: PostFamiliesRequest;
+export interface PostFamiliesRequest {
+    body?: FamiliesEmbeddedItemsInnerAllOf;
 }
 
-export interface PostFamiliesFamilyCodeVariantsOperationRequest {
+export interface PostFamiliesFamilyCodeVariantsRequest {
     familyCode: string;
-    body?: PostFamiliesFamilyCodeVariantsRequest;
+    body?: FamilyVariantsEmbeddedItemsInnerAllOf;
 }
 
 /**
@@ -119,7 +119,7 @@ export class FamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given family.
      * Get a family
      */
-    async getFamiliesCodeRaw(requestParameters: GetFamiliesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFamiliesRequest>> {
+    async getFamiliesCodeRaw(requestParameters: GetFamiliesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FamiliesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getFamiliesCode.');
         }
@@ -135,14 +135,14 @@ export class FamilyApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PostFamiliesRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FamiliesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given family.
      * Get a family
      */
-    async getFamiliesCode(requestParameters: GetFamiliesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFamiliesRequest> {
+    async getFamiliesCode(requestParameters: GetFamiliesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FamiliesEmbeddedItemsInnerAllOf> {
         const response = await this.getFamiliesCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -202,7 +202,7 @@ export class FamilyApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFamiliesRequestToJSON(requestParameters.body),
+            body: FamiliesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -220,7 +220,7 @@ export class FamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new family.
      * Create a new family
      */
-    async postFamiliesRaw(requestParameters: PostFamiliesOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postFamiliesRaw(requestParameters: PostFamiliesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -232,7 +232,7 @@ export class FamilyApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFamiliesRequestToJSON(requestParameters.body),
+            body: FamiliesEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -242,7 +242,7 @@ export class FamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new family.
      * Create a new family
      */
-    async postFamilies(requestParameters: PostFamiliesOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async postFamilies(requestParameters: PostFamiliesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.postFamiliesRaw(requestParameters, initOverrides);
     }
 
@@ -250,7 +250,7 @@ export class FamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to create a family variant.
      * Create a new family variant
      */
-    async postFamiliesFamilyCodeVariantsRaw(requestParameters: PostFamiliesFamilyCodeVariantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async postFamiliesFamilyCodeVariantsRaw(requestParameters: PostFamiliesFamilyCodeVariantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters.familyCode === null || requestParameters.familyCode === undefined) {
             throw new runtime.RequiredError('familyCode','Required parameter requestParameters.familyCode was null or undefined when calling postFamiliesFamilyCodeVariants.');
         }
@@ -266,7 +266,7 @@ export class FamilyApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: PostFamiliesFamilyCodeVariantsRequestToJSON(requestParameters.body),
+            body: FamilyVariantsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -276,7 +276,7 @@ export class FamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to create a family variant.
      * Create a new family variant
      */
-    async postFamiliesFamilyCodeVariants(requestParameters: PostFamiliesFamilyCodeVariantsOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async postFamiliesFamilyCodeVariants(requestParameters: PostFamiliesFamilyCodeVariantsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.postFamiliesFamilyCodeVariantsRaw(requestParameters, initOverrides);
     }
 

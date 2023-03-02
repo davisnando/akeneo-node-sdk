@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { PAMAssetsEmbedded } from './PAMAssetsEmbedded';
+import {
+    PAMAssetsEmbeddedFromJSON,
+    PAMAssetsEmbeddedFromJSONTyped,
+    PAMAssetsEmbeddedToJSON,
+} from './PAMAssetsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface PAMAssets
  */
 export interface PAMAssets {
+    /**
+     * 
+     * @type {PAMAssetsEmbedded}
+     * @memberof PAMAssets
+     */
+    embedded?: PAMAssetsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function PAMAssetsFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : PAMAssetsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function PAMAssetsToJSON(value?: PAMAssets | null): any {
     }
     return {
         
+        '_embedded': PAMAssetsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

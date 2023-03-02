@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { MediaFileItemListLinks } from './MediaFileItemListLinks';
+import type { MediaFilesEmbeddedItemsInnerAllOfLinks } from './MediaFilesEmbeddedItemsInnerAllOfLinks';
 import {
-    MediaFileItemListLinksFromJSON,
-    MediaFileItemListLinksFromJSONTyped,
-    MediaFileItemListLinksToJSON,
-} from './MediaFileItemListLinks';
+    MediaFilesEmbeddedItemsInnerAllOfLinksFromJSON,
+    MediaFilesEmbeddedItemsInnerAllOfLinksFromJSONTyped,
+    MediaFilesEmbeddedItemsInnerAllOfLinksToJSON,
+} from './MediaFilesEmbeddedItemsInnerAllOfLinks';
 
 /**
  * 
@@ -28,10 +28,10 @@ import {
 export interface MediaFileItemList {
     /**
      * 
-     * @type {MediaFileItemListLinks}
+     * @type {MediaFilesEmbeddedItemsInnerAllOfLinks}
      * @memberof MediaFileItemList
      */
-    links?: MediaFileItemListLinks;
+    links?: MediaFilesEmbeddedItemsInnerAllOfLinks;
 }
 
 /**
@@ -53,7 +53,7 @@ export function MediaFileItemListFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'links': !exists(json, '_links') ? undefined : MediaFileItemListLinksFromJSON(json['_links']),
+        'links': !exists(json, '_links') ? undefined : MediaFilesEmbeddedItemsInnerAllOfLinksFromJSON(json['_links']),
     };
 }
 
@@ -66,7 +66,7 @@ export function MediaFileItemListToJSON(value?: MediaFileItemList | null): any {
     }
     return {
         
-        '_links': MediaFileItemListLinksToJSON(value.links),
+        '_links': MediaFilesEmbeddedItemsInnerAllOfLinksToJSON(value.links),
     };
 }
 

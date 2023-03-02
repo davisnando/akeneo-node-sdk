@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostProductModelsRequestAssociations } from './PostProductModelsRequestAssociations';
+import type { ProductModelsEmbeddedItemsInnerAllOfAssociations } from './ProductModelsEmbeddedItemsInnerAllOfAssociations';
 import {
-    PostProductModelsRequestAssociationsFromJSON,
-    PostProductModelsRequestAssociationsFromJSONTyped,
-    PostProductModelsRequestAssociationsToJSON,
-} from './PostProductModelsRequestAssociations';
-import type { PostProductModelsRequestMetadata } from './PostProductModelsRequestMetadata';
+    ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSONTyped,
+    ProductModelsEmbeddedItemsInnerAllOfAssociationsToJSON,
+} from './ProductModelsEmbeddedItemsInnerAllOfAssociations';
+import type { ProductModelsEmbeddedItemsInnerAllOfMetadata } from './ProductModelsEmbeddedItemsInnerAllOfMetadata';
 import {
-    PostProductModelsRequestMetadataFromJSON,
-    PostProductModelsRequestMetadataFromJSONTyped,
-    PostProductModelsRequestMetadataToJSON,
-} from './PostProductModelsRequestMetadata';
-import type { PostProductModelsRequestQuantifiedAssociations } from './PostProductModelsRequestQuantifiedAssociations';
+    ProductModelsEmbeddedItemsInnerAllOfMetadataFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfMetadataFromJSONTyped,
+    ProductModelsEmbeddedItemsInnerAllOfMetadataToJSON,
+} from './ProductModelsEmbeddedItemsInnerAllOfMetadata';
+import type { ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociations } from './ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociations';
 import {
-    PostProductModelsRequestQuantifiedAssociationsFromJSON,
-    PostProductModelsRequestQuantifiedAssociationsFromJSONTyped,
-    PostProductModelsRequestQuantifiedAssociationsToJSON,
-} from './PostProductModelsRequestQuantifiedAssociations';
-import type { PostProductModelsRequestValues } from './PostProductModelsRequestValues';
+    ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSONTyped,
+    ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociationsToJSON,
+} from './ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociations';
+import type { ProductModelsEmbeddedItemsInnerAllOfValuesValueInner } from './ProductModelsEmbeddedItemsInnerAllOfValuesValueInner';
 import {
-    PostProductModelsRequestValuesFromJSON,
-    PostProductModelsRequestValuesFromJSONTyped,
-    PostProductModelsRequestValuesToJSON,
-} from './PostProductModelsRequestValues';
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerFromJSONTyped,
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerToJSON,
+} from './ProductModelsEmbeddedItemsInnerAllOfValuesValueInner';
 
 /**
  * 
@@ -75,23 +75,23 @@ export interface ProductModel {
      */
     categories?: Array<string>;
     /**
-     * 
-     * @type {PostProductModelsRequestValues}
+     * Product model attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<ProductModelsEmbeddedItemsInnerAllOfValuesValueInner>; }}
      * @memberof ProductModel
      */
-    values?: PostProductModelsRequestValues;
+    values?: { [key: string]: Array<ProductModelsEmbeddedItemsInnerAllOfValuesValueInner>; };
     /**
      * 
-     * @type {PostProductModelsRequestAssociations}
+     * @type {ProductModelsEmbeddedItemsInnerAllOfAssociations}
      * @memberof ProductModel
      */
-    associations?: PostProductModelsRequestAssociations;
+    associations?: ProductModelsEmbeddedItemsInnerAllOfAssociations;
     /**
      * 
-     * @type {PostProductModelsRequestQuantifiedAssociations}
+     * @type {ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociations}
      * @memberof ProductModel
      */
-    quantifiedAssociations?: PostProductModelsRequestQuantifiedAssociations;
+    quantifiedAssociations?: ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociations;
     /**
      * Date of creation
      * @type {string}
@@ -106,12 +106,12 @@ export interface ProductModel {
     updated?: string;
     /**
      * 
-     * @type {PostProductModelsRequestMetadata}
+     * @type {ProductModelsEmbeddedItemsInnerAllOfMetadata}
      * @memberof ProductModel
      */
-    metadata?: PostProductModelsRequestMetadata;
+    metadata?: ProductModelsEmbeddedItemsInnerAllOfMetadata;
     /**
-     * Product model quality scores for each channel/locale combination (<strong>only available on SaaS platforms</strong> and when the "with_quality_scores" query parameter is set to "true")
+     * Product model quality scores for each channel/locale combination (<strong>only available since the 7.0 version</strong> and when the "with_quality_scores" query parameter is set to "true")
      * @type {object}
      * @memberof ProductModel
      */
@@ -144,12 +144,12 @@ export function ProductModelFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'familyVariant': json['family_variant'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
-        'values': !exists(json, 'values') ? undefined : PostProductModelsRequestValuesFromJSON(json['values']),
-        'associations': !exists(json, 'associations') ? undefined : PostProductModelsRequestAssociationsFromJSON(json['associations']),
-        'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : PostProductModelsRequestQuantifiedAssociationsFromJSON(json['quantified_associations']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
+        'associations': !exists(json, 'associations') ? undefined : ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSON(json['associations']),
+        'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
-        'metadata': !exists(json, 'metadata') ? undefined : PostProductModelsRequestMetadataFromJSON(json['metadata']),
+        'metadata': !exists(json, 'metadata') ? undefined : ProductModelsEmbeddedItemsInnerAllOfMetadataFromJSON(json['metadata']),
         'qualityScores': !exists(json, 'quality_scores') ? undefined : json['quality_scores'],
     };
 }
@@ -168,12 +168,12 @@ export function ProductModelToJSON(value?: ProductModel | null): any {
         'family_variant': value.familyVariant,
         'parent': value.parent,
         'categories': value.categories,
-        'values': PostProductModelsRequestValuesToJSON(value.values),
-        'associations': PostProductModelsRequestAssociationsToJSON(value.associations),
-        'quantified_associations': PostProductModelsRequestQuantifiedAssociationsToJSON(value.quantifiedAssociations),
+        'values': value.values,
+        'associations': ProductModelsEmbeddedItemsInnerAllOfAssociationsToJSON(value.associations),
+        'quantified_associations': ProductModelsEmbeddedItemsInnerAllOfQuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,
         'updated': value.updated,
-        'metadata': PostProductModelsRequestMetadataToJSON(value.metadata),
+        'metadata': ProductModelsEmbeddedItemsInnerAllOfMetadataToJSON(value.metadata),
         'quality_scores': value.qualityScores,
     };
 }

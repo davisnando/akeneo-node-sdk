@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AssetFamilyItemListLinks } from './AssetFamilyItemListLinks';
+import type { ProductsEmbeddedItemsInnerAllOfLinks } from './ProductsEmbeddedItemsInnerAllOfLinks';
 import {
-    AssetFamilyItemListLinksFromJSON,
-    AssetFamilyItemListLinksFromJSONTyped,
-    AssetFamilyItemListLinksToJSON,
-} from './AssetFamilyItemListLinks';
+    ProductsEmbeddedItemsInnerAllOfLinksFromJSON,
+    ProductsEmbeddedItemsInnerAllOfLinksFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOfLinksToJSON,
+} from './ProductsEmbeddedItemsInnerAllOfLinks';
 
 /**
  * 
@@ -28,10 +28,10 @@ import {
 export interface AssetFamilyItemList {
     /**
      * 
-     * @type {AssetFamilyItemListLinks}
+     * @type {ProductsEmbeddedItemsInnerAllOfLinks}
      * @memberof AssetFamilyItemList
      */
-    links?: AssetFamilyItemListLinks;
+    links?: ProductsEmbeddedItemsInnerAllOfLinks;
 }
 
 /**
@@ -53,7 +53,7 @@ export function AssetFamilyItemListFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'links': !exists(json, '_links') ? undefined : AssetFamilyItemListLinksFromJSON(json['_links']),
+        'links': !exists(json, '_links') ? undefined : ProductsEmbeddedItemsInnerAllOfLinksFromJSON(json['_links']),
     };
 }
 
@@ -66,7 +66,7 @@ export function AssetFamilyItemListToJSON(value?: AssetFamilyItemList | null): a
     }
     return {
         
-        '_links': AssetFamilyItemListLinksToJSON(value.links),
+        '_links': ProductsEmbeddedItemsInnerAllOfLinksToJSON(value.links),
     };
 }
 

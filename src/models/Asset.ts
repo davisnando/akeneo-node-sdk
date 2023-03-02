@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AssetEmbedded } from './AssetEmbedded';
+import {
+    AssetEmbeddedFromJSON,
+    AssetEmbeddedFromJSONTyped,
+    AssetEmbeddedToJSON,
+} from './AssetEmbedded';
 import type { ReferenceEntitiesLinks } from './ReferenceEntitiesLinks';
 import {
     ReferenceEntitiesLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Asset
  */
 export interface Asset {
+    /**
+     * 
+     * @type {AssetEmbedded}
+     * @memberof Asset
+     */
+    embedded?: AssetEmbedded;
     /**
      * 
      * @type {ReferenceEntitiesLinks}
@@ -53,6 +65,7 @@ export function AssetFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ass
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : AssetEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ReferenceEntitiesLinksFromJSON(json['_links']),
     };
 }
@@ -66,6 +79,7 @@ export function AssetToJSON(value?: Asset | null): any {
     }
     return {
         
+        '_embedded': AssetEmbeddedToJSON(value.embedded),
         '_links': ReferenceEntitiesLinksToJSON(value.links),
     };
 }

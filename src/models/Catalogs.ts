@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { CatalogsEmbedded } from './CatalogsEmbedded';
+import {
+    CatalogsEmbeddedFromJSON,
+    CatalogsEmbeddedFromJSONTyped,
+    CatalogsEmbeddedToJSON,
+} from './CatalogsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface Catalogs
  */
 export interface Catalogs {
+    /**
+     * 
+     * @type {CatalogsEmbedded}
+     * @memberof Catalogs
+     */
+    embedded?: CatalogsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function CatalogsFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : CatalogsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function CatalogsToJSON(value?: Catalogs | null): any {
     }
     return {
         
+        '_embedded': CatalogsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

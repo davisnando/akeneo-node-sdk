@@ -13,12 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ReferenceEntitiesLinks } from './ReferenceEntitiesLinks';
+import type { Products1Embedded } from './Products1Embedded';
 import {
-    ReferenceEntitiesLinksFromJSON,
-    ReferenceEntitiesLinksFromJSONTyped,
-    ReferenceEntitiesLinksToJSON,
-} from './ReferenceEntitiesLinks';
+    Products1EmbeddedFromJSON,
+    Products1EmbeddedFromJSONTyped,
+    Products1EmbeddedToJSON,
+} from './Products1Embedded';
+import type { ProductsLinks } from './ProductsLinks';
+import {
+    ProductsLinksFromJSON,
+    ProductsLinksFromJSONTyped,
+    ProductsLinksToJSON,
+} from './ProductsLinks';
 
 /**
  * 
@@ -28,10 +34,22 @@ import {
 export interface Products1 {
     /**
      * 
-     * @type {ReferenceEntitiesLinks}
+     * @type {Products1Embedded}
      * @memberof Products1
      */
-    links?: ReferenceEntitiesLinks;
+    embedded?: Products1Embedded;
+    /**
+     * 
+     * @type {ProductsLinks}
+     * @memberof Products1
+     */
+    links?: ProductsLinks;
+    /**
+     * Current page number
+     * @type {number}
+     * @memberof Products1
+     */
+    currentPage?: number;
 }
 
 /**
@@ -53,7 +71,9 @@ export function Products1FromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'links': !exists(json, '_links') ? undefined : ReferenceEntitiesLinksFromJSON(json['_links']),
+        'embedded': !exists(json, '_embedded') ? undefined : Products1EmbeddedFromJSON(json['_embedded']),
+        'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
+        'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
 }
 
@@ -66,7 +86,9 @@ export function Products1ToJSON(value?: Products1 | null): any {
     }
     return {
         
-        '_links': ReferenceEntitiesLinksToJSON(value.links),
+        '_embedded': Products1EmbeddedToJSON(value.embedded),
+        '_links': ProductsLinksToJSON(value.links),
+        'current_page': value.currentPage,
     };
 }
 

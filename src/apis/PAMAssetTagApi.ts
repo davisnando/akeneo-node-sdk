@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetAssetTagsCode200Response,
   GetProducts401Response,
   PAMAssetTags,
+  PAMAssetTagsEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
-    GetAssetTagsCode200ResponseFromJSON,
-    GetAssetTagsCode200ResponseToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PAMAssetTagsFromJSON,
     PAMAssetTagsToJSON,
+    PAMAssetTagsEmbeddedItemsInnerAllOfFromJSON,
+    PAMAssetTagsEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface GetAssetTagsRequest {
@@ -40,7 +40,7 @@ export interface GetAssetTagsCodeRequest {
 
 export interface PatchAssetTagsCodeRequest {
     code: string;
-    body: GetAssetTagsCode200Response;
+    body: PAMAssetTagsEmbeddedItemsInnerAllOf;
 }
 
 /**
@@ -92,7 +92,7 @@ export class PAMAssetTagApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given PAM asset tag.
      * Get a PAM asset tag
      */
-    async getAssetTagsCodeRaw(requestParameters: GetAssetTagsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAssetTagsCode200Response>> {
+    async getAssetTagsCodeRaw(requestParameters: GetAssetTagsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PAMAssetTagsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getAssetTagsCode.');
         }
@@ -108,14 +108,14 @@ export class PAMAssetTagApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAssetTagsCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => PAMAssetTagsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given PAM asset tag.
      * Get a PAM asset tag
      */
-    async getAssetTagsCode(requestParameters: GetAssetTagsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAssetTagsCode200Response> {
+    async getAssetTagsCode(requestParameters: GetAssetTagsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PAMAssetTagsEmbeddedItemsInnerAllOf> {
         const response = await this.getAssetTagsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -144,7 +144,7 @@ export class PAMAssetTagApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: GetAssetTagsCode200ResponseToJSON(requestParameters.body),
+            body: PAMAssetTagsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);

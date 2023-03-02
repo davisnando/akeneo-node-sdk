@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostPamAssetsRequestReferenceFilesInnerLinkDownload } from './PostPamAssetsRequestReferenceFilesInnerLinkDownload';
+import type { PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownload } from './PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownload';
 import {
-    PostPamAssetsRequestReferenceFilesInnerLinkDownloadFromJSON,
-    PostPamAssetsRequestReferenceFilesInnerLinkDownloadFromJSONTyped,
-    PostPamAssetsRequestReferenceFilesInnerLinkDownloadToJSON,
-} from './PostPamAssetsRequestReferenceFilesInnerLinkDownload';
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownloadFromJSON,
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownloadFromJSONTyped,
+    PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownloadToJSON,
+} from './PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownload';
 
 /**
  * Links to get and download the reference file
@@ -28,10 +28,10 @@ import {
 export interface GetReferenceFilesLocaleCode200ResponseLink {
     /**
      * 
-     * @type {PostPamAssetsRequestReferenceFilesInnerLinkDownload}
+     * @type {PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownload}
      * @memberof GetReferenceFilesLocaleCode200ResponseLink
      */
-    download?: PostPamAssetsRequestReferenceFilesInnerLinkDownload;
+    download?: PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownload;
 }
 
 /**
@@ -53,7 +53,7 @@ export function GetReferenceFilesLocaleCode200ResponseLinkFromJSONTyped(json: an
     }
     return {
         
-        'download': !exists(json, 'download') ? undefined : PostPamAssetsRequestReferenceFilesInnerLinkDownloadFromJSON(json['download']),
+        'download': !exists(json, 'download') ? undefined : PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownloadFromJSON(json['download']),
     };
 }
 
@@ -66,7 +66,7 @@ export function GetReferenceFilesLocaleCode200ResponseLinkToJSON(value?: GetRefe
     }
     return {
         
-        'download': PostPamAssetsRequestReferenceFilesInnerLinkDownloadToJSON(value.download),
+        'download': PAMAssetsEmbeddedItemsInnerAllOfReferenceFilesInnerLinkDownloadToJSON(value.download),
     };
 }
 

@@ -16,15 +16,15 @@
 import * as runtime from '../runtime';
 import type {
   AssetFamilies,
-  GetAssetFamilyCode200Response,
+  AssetFamiliesEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchAssetFamilyCodeRequest,
 } from '../models';
 import {
     AssetFamiliesFromJSON,
     AssetFamiliesToJSON,
-    GetAssetFamilyCode200ResponseFromJSON,
-    GetAssetFamilyCode200ResponseToJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfFromJSON,
+    AssetFamiliesEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchAssetFamilyCodeRequestFromJSON,
@@ -85,7 +85,7 @@ export class AssetFamilyApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given asset family.
      * Get an asset family
      */
-    async getAssetFamilyCodeRaw(requestParameters: GetAssetFamilyCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAssetFamilyCode200Response>> {
+    async getAssetFamilyCodeRaw(requestParameters: GetAssetFamilyCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AssetFamiliesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getAssetFamilyCode.');
         }
@@ -101,14 +101,14 @@ export class AssetFamilyApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAssetFamilyCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AssetFamiliesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given asset family.
      * Get an asset family
      */
-    async getAssetFamilyCode(requestParameters: GetAssetFamilyCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAssetFamilyCode200Response> {
+    async getAssetFamilyCode(requestParameters: GetAssetFamilyCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AssetFamiliesEmbeddedItemsInnerAllOf> {
         const response = await this.getAssetFamilyCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

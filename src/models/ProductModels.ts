@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ProductModelsEmbedded } from './ProductModelsEmbedded';
+import {
+    ProductModelsEmbeddedFromJSON,
+    ProductModelsEmbeddedFromJSONTyped,
+    ProductModelsEmbeddedToJSON,
+} from './ProductModelsEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface ProductModels
  */
 export interface ProductModels {
+    /**
+     * 
+     * @type {ProductModelsEmbedded}
+     * @memberof ProductModels
+     */
+    embedded?: ProductModelsEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function ProductModelsFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : ProductModelsEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function ProductModelsToJSON(value?: ProductModels | null): any {
     }
     return {
         
+        '_embedded': ProductModelsEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

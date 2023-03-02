@@ -15,17 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetLocalesCode200Response,
   GetProducts401Response,
   Locales,
+  LocalesEmbeddedItemsInnerAllOf,
 } from '../models';
 import {
-    GetLocalesCode200ResponseFromJSON,
-    GetLocalesCode200ResponseToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     LocalesFromJSON,
     LocalesToJSON,
+    LocalesEmbeddedItemsInnerAllOfFromJSON,
+    LocalesEmbeddedItemsInnerAllOfToJSON,
 } from '../models';
 
 export interface GetLocalesRequest {
@@ -92,7 +92,7 @@ export class LocaleApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given locale.
      * Get a locale
      */
-    async getLocalesCodeRaw(requestParameters: GetLocalesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLocalesCode200Response>> {
+    async getLocalesCodeRaw(requestParameters: GetLocalesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LocalesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getLocalesCode.');
         }
@@ -108,14 +108,14 @@ export class LocaleApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetLocalesCode200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => LocalesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given locale.
      * Get a locale
      */
-    async getLocalesCode(requestParameters: GetLocalesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLocalesCode200Response> {
+    async getLocalesCode(requestParameters: GetLocalesCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LocalesEmbeddedItemsInnerAllOf> {
         const response = await this.getLocalesCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

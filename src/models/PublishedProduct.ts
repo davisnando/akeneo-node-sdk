@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { GetPublishedProductsCode200ResponseAssociations } from './GetPublishedProductsCode200ResponseAssociations';
+import type { ProductModelsEmbeddedItemsInnerAllOfValuesValueInner } from './ProductModelsEmbeddedItemsInnerAllOfValuesValueInner';
 import {
-    GetPublishedProductsCode200ResponseAssociationsFromJSON,
-    GetPublishedProductsCode200ResponseAssociationsFromJSONTyped,
-    GetPublishedProductsCode200ResponseAssociationsToJSON,
-} from './GetPublishedProductsCode200ResponseAssociations';
-import type { GetPublishedProductsCode200ResponseValues } from './GetPublishedProductsCode200ResponseValues';
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerFromJSON,
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerFromJSONTyped,
+    ProductModelsEmbeddedItemsInnerAllOfValuesValueInnerToJSON,
+} from './ProductModelsEmbeddedItemsInnerAllOfValuesValueInner';
+import type { PublishedProductsEmbeddedItemsInnerAllOfAssociations } from './PublishedProductsEmbeddedItemsInnerAllOfAssociations';
 import {
-    GetPublishedProductsCode200ResponseValuesFromJSON,
-    GetPublishedProductsCode200ResponseValuesFromJSONTyped,
-    GetPublishedProductsCode200ResponseValuesToJSON,
-} from './GetPublishedProductsCode200ResponseValues';
+    PublishedProductsEmbeddedItemsInnerAllOfAssociationsFromJSON,
+    PublishedProductsEmbeddedItemsInnerAllOfAssociationsFromJSONTyped,
+    PublishedProductsEmbeddedItemsInnerAllOfAssociationsToJSON,
+} from './PublishedProductsEmbeddedItemsInnerAllOfAssociations';
 
 /**
  * 
@@ -63,17 +63,17 @@ export interface PublishedProduct {
      */
     groups?: Array<string>;
     /**
-     * 
-     * @type {GetPublishedProductsCode200ResponseValues}
+     * Published product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<ProductModelsEmbeddedItemsInnerAllOfValuesValueInner>; }}
      * @memberof PublishedProduct
      */
-    values?: GetPublishedProductsCode200ResponseValues;
+    values?: { [key: string]: Array<ProductModelsEmbeddedItemsInnerAllOfValuesValueInner>; };
     /**
      * 
-     * @type {GetPublishedProductsCode200ResponseAssociations}
+     * @type {PublishedProductsEmbeddedItemsInnerAllOfAssociations}
      * @memberof PublishedProduct
      */
-    associations?: GetPublishedProductsCode200ResponseAssociations;
+    associations?: PublishedProductsEmbeddedItemsInnerAllOfAssociations;
     /**
      * Warning: associations with quantities are not compatible with the published products. The response will always be empty.
      * @type {object}
@@ -119,8 +119,8 @@ export function PublishedProductFromJSONTyped(json: any, ignoreDiscriminator: bo
         'family': !exists(json, 'family') ? undefined : json['family'],
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
-        'values': !exists(json, 'values') ? undefined : GetPublishedProductsCode200ResponseValuesFromJSON(json['values']),
-        'associations': !exists(json, 'associations') ? undefined : GetPublishedProductsCode200ResponseAssociationsFromJSON(json['associations']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
+        'associations': !exists(json, 'associations') ? undefined : PublishedProductsEmbeddedItemsInnerAllOfAssociationsFromJSON(json['associations']),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : json['quantified_associations'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
@@ -141,8 +141,8 @@ export function PublishedProductToJSON(value?: PublishedProduct | null): any {
         'family': value.family,
         'categories': value.categories,
         'groups': value.groups,
-        'values': GetPublishedProductsCode200ResponseValuesToJSON(value.values),
-        'associations': GetPublishedProductsCode200ResponseAssociationsToJSON(value.associations),
+        'values': value.values,
+        'associations': PublishedProductsEmbeddedItemsInnerAllOfAssociationsToJSON(value.associations),
         'quantified_associations': value.quantifiedAssociations,
         'created': value.created,
         'updated': value.updated,

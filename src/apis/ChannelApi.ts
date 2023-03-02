@@ -16,7 +16,7 @@
 import * as runtime from '../runtime';
 import type {
   Channels,
-  ChannelsPostRequest,
+  ChannelsEmbeddedItemsInnerAllOf,
   GetProducts401Response,
   PatchProducts200Response,
   SeveralChannelsPatchRequest,
@@ -24,8 +24,8 @@ import type {
 import {
     ChannelsFromJSON,
     ChannelsToJSON,
-    ChannelsPostRequestFromJSON,
-    ChannelsPostRequestToJSON,
+    ChannelsEmbeddedItemsInnerAllOfFromJSON,
+    ChannelsEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
     PatchProducts200ResponseFromJSON,
@@ -36,11 +36,11 @@ import {
 
 export interface ChannelsPatchRequest {
     code: string;
-    body: ChannelsPostRequest;
+    body: ChannelsEmbeddedItemsInnerAllOf;
 }
 
-export interface ChannelsPostOperationRequest {
-    body?: ChannelsPostRequest;
+export interface ChannelsPostRequest {
+    body?: ChannelsEmbeddedItemsInnerAllOf;
 }
 
 export interface GetChannelsRequest {
@@ -86,7 +86,7 @@ export class ChannelApi extends runtime.BaseAPI {
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
-            body: ChannelsPostRequestToJSON(requestParameters.body),
+            body: ChannelsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -104,7 +104,7 @@ export class ChannelApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new channel.
      * Create a new channel
      */
-    async channelsPostRaw(requestParameters: ChannelsPostOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+    async channelsPostRaw(requestParameters: ChannelsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -116,7 +116,7 @@ export class ChannelApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: ChannelsPostRequestToJSON(requestParameters.body),
+            body: ChannelsEmbeddedItemsInnerAllOfToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.VoidApiResponse(response);
@@ -126,7 +126,7 @@ export class ChannelApi extends runtime.BaseAPI {
      * This endpoint allows you to create a new channel.
      * Create a new channel
      */
-    async channelsPost(requestParameters: ChannelsPostOperationRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async channelsPost(requestParameters: ChannelsPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.channelsPostRaw(requestParameters, initOverrides);
     }
 
@@ -174,7 +174,7 @@ export class ChannelApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given channel.
      * Get a channel
      */
-    async getChannelsCodeRaw(requestParameters: GetChannelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelsPostRequest>> {
+    async getChannelsCodeRaw(requestParameters: GetChannelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChannelsEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling getChannelsCode.');
         }
@@ -190,14 +190,14 @@ export class ChannelApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ChannelsPostRequestFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChannelsEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given channel.
      * Get a channel
      */
-    async getChannelsCode(requestParameters: GetChannelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsPostRequest> {
+    async getChannelsCode(requestParameters: GetChannelsCodeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChannelsEmbeddedItemsInnerAllOf> {
         const response = await this.getChannelsCodeRaw(requestParameters, initOverrides);
         return await response.value();
     }

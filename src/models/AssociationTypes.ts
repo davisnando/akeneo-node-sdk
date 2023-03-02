@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AssociationTypesEmbedded } from './AssociationTypesEmbedded';
+import {
+    AssociationTypesEmbeddedFromJSON,
+    AssociationTypesEmbeddedFromJSONTyped,
+    AssociationTypesEmbeddedToJSON,
+} from './AssociationTypesEmbedded';
 import type { ProductsLinks } from './ProductsLinks';
 import {
     ProductsLinksFromJSON,
@@ -26,6 +32,12 @@ import {
  * @interface AssociationTypes
  */
 export interface AssociationTypes {
+    /**
+     * 
+     * @type {AssociationTypesEmbedded}
+     * @memberof AssociationTypes
+     */
+    embedded?: AssociationTypesEmbedded;
     /**
      * 
      * @type {ProductsLinks}
@@ -59,6 +71,7 @@ export function AssociationTypesFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
+        'embedded': !exists(json, '_embedded') ? undefined : AssociationTypesEmbeddedFromJSON(json['_embedded']),
         'links': !exists(json, '_links') ? undefined : ProductsLinksFromJSON(json['_links']),
         'currentPage': !exists(json, 'current_page') ? undefined : json['current_page'],
     };
@@ -73,6 +86,7 @@ export function AssociationTypesToJSON(value?: AssociationTypes | null): any {
     }
     return {
         
+        '_embedded': AssociationTypesEmbeddedToJSON(value.embedded),
         '_links': ProductsLinksToJSON(value.links),
         'current_page': value.currentPage,
     };

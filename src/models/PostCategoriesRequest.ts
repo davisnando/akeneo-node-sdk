@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostCategoriesRequestLabels } from './PostCategoriesRequestLabels';
+import type { CategoriesEmbeddedItemsInnerAllOfLabels } from './CategoriesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostCategoriesRequestLabelsFromJSON,
-    PostCategoriesRequestLabelsFromJSONTyped,
-    PostCategoriesRequestLabelsToJSON,
-} from './PostCategoriesRequestLabels';
-import type { PostCategoriesRequestValues } from './PostCategoriesRequestValues';
+    CategoriesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    CategoriesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    CategoriesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './CategoriesEmbeddedItemsInnerAllOfLabels';
+import type { CategoriesEmbeddedItemsInnerAllOfValues } from './CategoriesEmbeddedItemsInnerAllOfValues';
 import {
-    PostCategoriesRequestValuesFromJSON,
-    PostCategoriesRequestValuesFromJSONTyped,
-    PostCategoriesRequestValuesToJSON,
-} from './PostCategoriesRequestValues';
+    CategoriesEmbeddedItemsInnerAllOfValuesFromJSON,
+    CategoriesEmbeddedItemsInnerAllOfValuesFromJSONTyped,
+    CategoriesEmbeddedItemsInnerAllOfValuesToJSON,
+} from './CategoriesEmbeddedItemsInnerAllOfValues';
 
 /**
  * 
@@ -51,23 +51,23 @@ export interface PostCategoriesRequest {
      */
     updated?: string;
     /**
-     * Position of the category in its level, start from 1 (only available on SaaS platforms and when query parameter "with_position" is set to "true")
+     * Position of the category in its level, start from 1 (only available since the 7.0 version and when query parameter "with_position" is set to "true")
      * @type {number}
      * @memberof PostCategoriesRequest
      */
     position?: number;
     /**
      * 
-     * @type {PostCategoriesRequestLabels}
+     * @type {CategoriesEmbeddedItemsInnerAllOfLabels}
      * @memberof PostCategoriesRequest
      */
-    labels?: PostCategoriesRequestLabels;
+    labels?: CategoriesEmbeddedItemsInnerAllOfLabels;
     /**
      * 
-     * @type {PostCategoriesRequestValues}
+     * @type {CategoriesEmbeddedItemsInnerAllOfValues}
      * @memberof PostCategoriesRequest
      */
-    values?: PostCategoriesRequestValues;
+    values?: CategoriesEmbeddedItemsInnerAllOfValues;
 }
 
 /**
@@ -94,8 +94,8 @@ export function PostCategoriesRequestFromJSONTyped(json: any, ignoreDiscriminato
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
         'position': !exists(json, 'position') ? undefined : json['position'],
-        'labels': !exists(json, 'labels') ? undefined : PostCategoriesRequestLabelsFromJSON(json['labels']),
-        'values': !exists(json, 'values') ? undefined : PostCategoriesRequestValuesFromJSON(json['values']),
+        'labels': !exists(json, 'labels') ? undefined : CategoriesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
+        'values': !exists(json, 'values') ? undefined : CategoriesEmbeddedItemsInnerAllOfValuesFromJSON(json['values']),
     };
 }
 
@@ -112,8 +112,8 @@ export function PostCategoriesRequestToJSON(value?: PostCategoriesRequest | null
         'parent': value.parent,
         'updated': value.updated,
         'position': value.position,
-        'labels': PostCategoriesRequestLabelsToJSON(value.labels),
-        'values': PostCategoriesRequestValuesToJSON(value.values),
+        'labels': CategoriesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
+        'values': CategoriesEmbeddedItemsInnerAllOfValuesToJSON(value.values),
     };
 }
 

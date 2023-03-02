@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PatchAssetsRequestInnerValues } from './PatchAssetsRequestInnerValues';
+import type { AssetEmbeddedItemsInnerAllOfValuesValueInner } from './AssetEmbeddedItemsInnerAllOfValuesValueInner';
 import {
-    PatchAssetsRequestInnerValuesFromJSON,
-    PatchAssetsRequestInnerValuesFromJSONTyped,
-    PatchAssetsRequestInnerValuesToJSON,
-} from './PatchAssetsRequestInnerValues';
+    AssetEmbeddedItemsInnerAllOfValuesValueInnerFromJSON,
+    AssetEmbeddedItemsInnerAllOfValuesValueInnerFromJSONTyped,
+    AssetEmbeddedItemsInnerAllOfValuesValueInnerToJSON,
+} from './AssetEmbeddedItemsInnerAllOfValuesValueInner';
 
 /**
  * 
@@ -33,19 +33,19 @@ export interface PatchAssetCodeRequest {
      */
     code: string;
     /**
-     * 
-     * @type {PatchAssetsRequestInnerValues}
+     * Asset attributes values, see the <a href='/concepts/asset-manager.html#focus-on-the-asset-values'>Focus on the asset values</a> section for more details.
+     * @type {{ [key: string]: Array<AssetEmbeddedItemsInnerAllOfValuesValueInner>; }}
      * @memberof PatchAssetCodeRequest
      */
-    values?: PatchAssetsRequestInnerValues;
+    values?: { [key: string]: Array<AssetEmbeddedItemsInnerAllOfValuesValueInner>; };
     /**
-     * Date of creation (Only available on SaaS versions)
+     * Date of creation
      * @type {string}
      * @memberof PatchAssetCodeRequest
      */
     created?: string;
     /**
-     * Date of the last update (Only available on SaaS versions)
+     * Date of the last update
      * @type {string}
      * @memberof PatchAssetCodeRequest
      */
@@ -73,7 +73,7 @@ export function PatchAssetCodeRequestFromJSONTyped(json: any, ignoreDiscriminato
     return {
         
         'code': json['code'],
-        'values': !exists(json, 'values') ? undefined : PatchAssetsRequestInnerValuesFromJSON(json['values']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
     };
@@ -89,7 +89,7 @@ export function PatchAssetCodeRequestToJSON(value?: PatchAssetCodeRequest | null
     return {
         
         'code': value.code,
-        'values': PatchAssetsRequestInnerValuesToJSON(value.values),
+        'values': value.values,
         'created': value.created,
         'updated': value.updated,
     };

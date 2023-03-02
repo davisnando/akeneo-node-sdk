@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ChannelsPostRequestConversionUnits } from './ChannelsPostRequestConversionUnits';
+import type { ChannelsEmbeddedItemsInnerAllOfConversionUnits } from './ChannelsEmbeddedItemsInnerAllOfConversionUnits';
 import {
-    ChannelsPostRequestConversionUnitsFromJSON,
-    ChannelsPostRequestConversionUnitsFromJSONTyped,
-    ChannelsPostRequestConversionUnitsToJSON,
-} from './ChannelsPostRequestConversionUnits';
-import type { ChannelsPostRequestLabels } from './ChannelsPostRequestLabels';
+    ChannelsEmbeddedItemsInnerAllOfConversionUnitsFromJSON,
+    ChannelsEmbeddedItemsInnerAllOfConversionUnitsFromJSONTyped,
+    ChannelsEmbeddedItemsInnerAllOfConversionUnitsToJSON,
+} from './ChannelsEmbeddedItemsInnerAllOfConversionUnits';
+import type { ChannelsEmbeddedItemsInnerAllOfLabels } from './ChannelsEmbeddedItemsInnerAllOfLabels';
 import {
-    ChannelsPostRequestLabelsFromJSON,
-    ChannelsPostRequestLabelsFromJSONTyped,
-    ChannelsPostRequestLabelsToJSON,
-} from './ChannelsPostRequestLabels';
+    ChannelsEmbeddedItemsInnerAllOfLabelsFromJSON,
+    ChannelsEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    ChannelsEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './ChannelsEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -58,16 +58,16 @@ export interface Channel {
     categoryTree: string;
     /**
      * 
-     * @type {ChannelsPostRequestConversionUnits}
+     * @type {ChannelsEmbeddedItemsInnerAllOfConversionUnits}
      * @memberof Channel
      */
-    conversionUnits?: ChannelsPostRequestConversionUnits;
+    conversionUnits?: ChannelsEmbeddedItemsInnerAllOfConversionUnits;
     /**
      * 
-     * @type {ChannelsPostRequestLabels}
+     * @type {ChannelsEmbeddedItemsInnerAllOfLabels}
      * @memberof Channel
      */
-    labels?: ChannelsPostRequestLabels;
+    labels?: ChannelsEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -97,8 +97,8 @@ export function ChannelFromJSONTyped(json: any, ignoreDiscriminator: boolean): C
         'locales': json['locales'],
         'currencies': json['currencies'],
         'categoryTree': json['category_tree'],
-        'conversionUnits': !exists(json, 'conversion_units') ? undefined : ChannelsPostRequestConversionUnitsFromJSON(json['conversion_units']),
-        'labels': !exists(json, 'labels') ? undefined : ChannelsPostRequestLabelsFromJSON(json['labels']),
+        'conversionUnits': !exists(json, 'conversion_units') ? undefined : ChannelsEmbeddedItemsInnerAllOfConversionUnitsFromJSON(json['conversion_units']),
+        'labels': !exists(json, 'labels') ? undefined : ChannelsEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -115,8 +115,8 @@ export function ChannelToJSON(value?: Channel | null): any {
         'locales': value.locales,
         'currencies': value.currencies,
         'category_tree': value.categoryTree,
-        'conversion_units': ChannelsPostRequestConversionUnitsToJSON(value.conversionUnits),
-        'labels': ChannelsPostRequestLabelsToJSON(value.labels),
+        'conversion_units': ChannelsEmbeddedItemsInnerAllOfConversionUnitsToJSON(value.conversionUnits),
+        'labels': ChannelsEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

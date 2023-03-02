@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostAssetCategoriesRequestLabels } from './PostAssetCategoriesRequestLabels';
+import type { PAMAssetCategoriesEmbeddedItemsInnerAllOfLabels } from './PAMAssetCategoriesEmbeddedItemsInnerAllOfLabels';
 import {
-    PostAssetCategoriesRequestLabelsFromJSON,
-    PostAssetCategoriesRequestLabelsFromJSONTyped,
-    PostAssetCategoriesRequestLabelsToJSON,
-} from './PostAssetCategoriesRequestLabels';
+    PAMAssetCategoriesEmbeddedItemsInnerAllOfLabelsFromJSON,
+    PAMAssetCategoriesEmbeddedItemsInnerAllOfLabelsFromJSONTyped,
+    PAMAssetCategoriesEmbeddedItemsInnerAllOfLabelsToJSON,
+} from './PAMAssetCategoriesEmbeddedItemsInnerAllOfLabels';
 
 /**
  * 
@@ -40,10 +40,10 @@ export interface DeprecatedAssetCategory {
     parent?: string;
     /**
      * 
-     * @type {PostAssetCategoriesRequestLabels}
+     * @type {PAMAssetCategoriesEmbeddedItemsInnerAllOfLabels}
      * @memberof DeprecatedAssetCategory
      */
-    labels?: PostAssetCategoriesRequestLabels;
+    labels?: PAMAssetCategoriesEmbeddedItemsInnerAllOfLabels;
 }
 
 /**
@@ -68,7 +68,7 @@ export function DeprecatedAssetCategoryFromJSONTyped(json: any, ignoreDiscrimina
         
         'code': json['code'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
-        'labels': !exists(json, 'labels') ? undefined : PostAssetCategoriesRequestLabelsFromJSON(json['labels']),
+        'labels': !exists(json, 'labels') ? undefined : PAMAssetCategoriesEmbeddedItemsInnerAllOfLabelsFromJSON(json['labels']),
     };
 }
 
@@ -83,7 +83,7 @@ export function DeprecatedAssetCategoryToJSON(value?: DeprecatedAssetCategory | 
         
         'code': value.code,
         'parent': value.parent,
-        'labels': PostAssetCategoriesRequestLabelsToJSON(value.labels),
+        'labels': PAMAssetCategoriesEmbeddedItemsInnerAllOfLabelsToJSON(value.labels),
     };
 }
 

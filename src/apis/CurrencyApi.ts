@@ -16,14 +16,14 @@
 import * as runtime from '../runtime';
 import type {
   Currencies,
-  CurrenciesGet200Response,
+  CurrenciesEmbeddedItemsInnerAllOf,
   GetProducts401Response,
 } from '../models';
 import {
     CurrenciesFromJSON,
     CurrenciesToJSON,
-    CurrenciesGet200ResponseFromJSON,
-    CurrenciesGet200ResponseToJSON,
+    CurrenciesEmbeddedItemsInnerAllOfFromJSON,
+    CurrenciesEmbeddedItemsInnerAllOfToJSON,
     GetProducts401ResponseFromJSON,
     GetProducts401ResponseToJSON,
 } from '../models';
@@ -47,7 +47,7 @@ export class CurrencyApi extends runtime.BaseAPI {
      * This endpoint allows you to get the information about a given currency.
      * Get a currency
      */
-    async currenciesGetRaw(requestParameters: CurrenciesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesGet200Response>> {
+    async currenciesGetRaw(requestParameters: CurrenciesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CurrenciesEmbeddedItemsInnerAllOf>> {
         if (requestParameters.code === null || requestParameters.code === undefined) {
             throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling currenciesGet.');
         }
@@ -63,14 +63,14 @@ export class CurrencyApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => CurrenciesGet200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => CurrenciesEmbeddedItemsInnerAllOfFromJSON(jsonValue));
     }
 
     /**
      * This endpoint allows you to get the information about a given currency.
      * Get a currency
      */
-    async currenciesGet(requestParameters: CurrenciesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesGet200Response> {
+    async currenciesGet(requestParameters: CurrenciesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CurrenciesEmbeddedItemsInnerAllOf> {
         const response = await this.currenciesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
