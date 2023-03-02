@@ -1,6 +1,6 @@
 {
   "name": "@labd/akeneo-node-sdk",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "OpenAPI client for @labd/akeneo-node-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
