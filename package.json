@@ -1,14 +1,11 @@
 {
-  "name": "@labd/akeneo-node-sdk",
+  "name": "@labdigital/akeneo-node-sdk",
   "version": "1.0.7",
-  "description": "OpenAPI client for @labd/akeneo-node-sdk",
+  "description": "OpenAPI client for @labdigital/akeneo-node-sdk",
   "author": "OpenAPI-Generator",
   "repository": {
     "type": "git",
     "url": "https://github.com/labd/akeneo-node-sdk.git"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
