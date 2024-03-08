@@ -103,7 +103,7 @@ export interface Product {
      * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
      * @memberof Product
      */
-    associations?: ProductsEmbeddedItemsInnerAllOf1Associations;
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -161,7 +161,7 @@ export function ProductFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
@@ -188,7 +188,7 @@ export function ProductToJSON(value?: Product | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'identifier': value.identifier,
         'enabled': value.enabled,

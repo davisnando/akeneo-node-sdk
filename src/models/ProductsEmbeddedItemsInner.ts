@@ -115,7 +115,7 @@ export interface ProductsEmbeddedItemsInner {
      * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
      * @memberof ProductsEmbeddedItemsInner
      */
-    associations?: ProductsEmbeddedItemsInnerAllOf1Associations;
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -173,7 +173,7 @@ export function ProductsEmbeddedItemsInnerFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-        
+
         'links': !exists(json, '_links') ? undefined : ProductsEmbeddedItemsInnerAllOfLinksFromJSON(json['_links']),
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
@@ -201,7 +201,7 @@ export function ProductsEmbeddedItemsInnerToJSON(value?: ProductsEmbeddedItemsIn
         return null;
     }
     return {
-        
+
         '_links': ProductsEmbeddedItemsInnerAllOfLinksToJSON(value.links),
         'uuid': value.uuid,
         'identifier': value.identifier,

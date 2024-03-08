@@ -103,7 +103,7 @@ export interface GetProductsCode200Response {
      * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
      * @memberof GetProductsCode200Response
      */
-    associations?: ProductsEmbeddedItemsInnerAllOf1Associations;
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -161,7 +161,7 @@ export function GetProductsCode200ResponseFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
@@ -188,7 +188,7 @@ export function GetProductsCode200ResponseToJSON(value?: GetProductsCode200Respo
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'identifier': value.identifier,
         'enabled': value.enabled,
