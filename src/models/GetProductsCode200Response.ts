@@ -38,6 +38,7 @@ import {
     ProductsEmbeddedItemsInnerAllOf1MetadataToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1Metadata';
 import type { ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
+import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSON,
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSONTyped,
@@ -100,10 +101,11 @@ export interface GetProductsCode200Response {
     values?: PostProductsRequestValues;
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
+     * @type { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
      * @memberof GetProductsCode200Response
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
+
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}

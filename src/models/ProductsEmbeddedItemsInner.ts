@@ -44,6 +44,7 @@ import {
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 import type { ProductsEmbeddedItemsInnerAllOfLinks } from './ProductsEmbeddedItemsInnerAllOfLinks';
+import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOfLinksFromJSON,
     ProductsEmbeddedItemsInnerAllOfLinksFromJSONTyped,
@@ -112,10 +113,11 @@ export interface ProductsEmbeddedItemsInner {
     values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
+     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode}
      * @memberof ProductsEmbeddedItemsInner
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
+
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}

@@ -38,6 +38,7 @@ import {
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
 import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
+import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
@@ -100,10 +101,11 @@ export interface PatchProductsRequest {
     values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
+     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode}
      * @memberof PatchProductsRequest
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1Associations; }
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
+
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
